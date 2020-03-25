@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f339140dc42f2863ce5dc14a4306934",
+    "revision": "5b4765679b855bbefd168357d99e28c9",
     "url": "/coronaisblind/index.html"
   },
   {
-    "revision": "0bf655b1d583b8f281d0",
+    "revision": "cd383b31de79fa16bd53",
     "url": "/coronaisblind/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "f82fdda0c127169fa380",
-    "url": "/coronaisblind/static/js/2.007d820c.chunk.js"
+    "revision": "e95ce1cfc7f600fa732c",
+    "url": "/coronaisblind/static/js/2.dfb240a8.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/coronaisblind/static/js/2.007d820c.chunk.js.LICENSE.txt"
+    "url": "/coronaisblind/static/js/2.dfb240a8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0bf655b1d583b8f281d0",
-    "url": "/coronaisblind/static/js/main.3e5e9236.chunk.js"
+    "revision": "cd383b31de79fa16bd53",
+    "url": "/coronaisblind/static/js/main.650376c0.chunk.js"
   },
   {
     "revision": "ec15eda54745d46aa4ea",
