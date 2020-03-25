@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/coronaisblind/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/coronaisblind/static/js/main.195c6328.chunk.js",
-    "main.js.map": "/coronaisblind/static/js/main.195c6328.chunk.js.map",
+    "main.js": "/coronaisblind/static/js/main.3e5e9236.chunk.js",
+    "main.js.map": "/coronaisblind/static/js/main.3e5e9236.chunk.js.map",
     "runtime-main.js": "/coronaisblind/static/js/runtime-main.5e35c494.js",
     "runtime-main.js.map": "/coronaisblind/static/js/runtime-main.5e35c494.js.map",
-    "static/js/2.1fa3dd39.chunk.js": "/coronaisblind/static/js/2.1fa3dd39.chunk.js",
-    "static/js/2.1fa3dd39.chunk.js.map": "/coronaisblind/static/js/2.1fa3dd39.chunk.js.map",
+    "static/js/2.007d820c.chunk.js": "/coronaisblind/static/js/2.007d820c.chunk.js",
+    "static/js/2.007d820c.chunk.js.map": "/coronaisblind/static/js/2.007d820c.chunk.js.map",
     "index.html": "/coronaisblind/index.html",
-    "precache-manifest.0dfd0631e144bd03320e63ee356925a9.js": "/coronaisblind/precache-manifest.0dfd0631e144bd03320e63ee356925a9.js",
+    "precache-manifest.4ed8ff94d08789d2e79ed9f4a17f2ed5.js": "/coronaisblind/precache-manifest.4ed8ff94d08789d2e79ed9f4a17f2ed5.js",
     "service-worker.js": "/coronaisblind/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/coronaisblind/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.1fa3dd39.chunk.js.LICENSE.txt": "/coronaisblind/static/js/2.1fa3dd39.chunk.js.LICENSE.txt"
+    "static/js/2.007d820c.chunk.js.LICENSE.txt": "/coronaisblind/static/js/2.007d820c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5e35c494.js",
-    "static/js/2.1fa3dd39.chunk.js",
+    "static/js/2.007d820c.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.195c6328.chunk.js"
+    "static/js/main.3e5e9236.chunk.js"
   ]
 }

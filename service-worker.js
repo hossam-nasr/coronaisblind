@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/coronaisblind/precache-manifest.0dfd0631e144bd03320e63ee356925a9.js"
+  "/coronaisblind/precache-manifest.4ed8ff94d08789d2e79ed9f4a17f2ed5.js"
 );
 
 self.addEventListener('message', (event) => {
