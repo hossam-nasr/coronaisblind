@@ -19,3 +19,26 @@ export const Title = styled.div`
   color: ${themeGet("colors.lightGold")};
   font-family: sans-serif;
 `;
+
+export const Subtitle = styled.div`
+  text-align: center;
+  font-size: 2em;
+  color: ${themeGet("colors.lightGold")};
+  font-family: sans-serif;
+`;
+
+export const Button = styled.div`
+  text-align: center;
+  font-size: 1.5em;
+  color: ${themeGet("colors.silver")};
+  font-family: sans-serif;
+  margin: 20px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+`;
