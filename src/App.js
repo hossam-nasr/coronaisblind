@@ -1,12 +1,12 @@
 import React from "react";
 import MainScreen from "./screens/MainScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import ScrollToTop from "./components/ScrollToTop";
-import Nav from "./Nav";
+import NavBar from "./components/NavBar";
 import { AuthProvider } from "./Auth";
-import SignUp from "./SignUp"
 
 function App() {
   return (
@@ -18,11 +18,11 @@ function App() {
           forceRefresh
           onUpdate={() => window.scrollTo(0, 0)}
         >
-          <Nav />
+          <NavBar />
           <ScrollToTop>
             <Switch>
               <Route exact path="/" component={MainScreen} />
-              <Route exact path="/signup" component={SignUp}/>
+              <Route exact path="/signup" component={SignUpScreen} />
             </Switch>
           </ScrollToTop>
         </BrowserRouter>
