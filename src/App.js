@@ -1,6 +1,7 @@
 import React from "react";
 import MainScreen from "./screens/MainScreen";
 import SignUpScreen from "./screens/SignUpScreen";
+import LoginScreen from "./screens/LoginScreen";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
@@ -22,6 +23,7 @@ function App() {
           <ScrollToTop>
             <Switch>
               <Route exact path="/" component={MainScreen} />
+              <Route exact path="/login" component={LoginScreen} />
               <Route exact path="/signup" component={SignUpScreen} />
             </Switch>
           </ScrollToTop>
