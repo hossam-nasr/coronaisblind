@@ -11,7 +11,7 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* NOTE: TODO: CHANGE basename to "/" WHEN SWITCHING TO CUSTOM DOMAIN NAME */}
       <BrowserRouter
-        basename="/coronaisblind"
+        basename="/"
         forceRefresh
         onUpdate={() => window.scrollTo(0, 0)}
       >
