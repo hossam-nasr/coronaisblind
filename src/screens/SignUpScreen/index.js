@@ -37,7 +37,7 @@ const SignUpScreen = ({ history }) => {
         console.error("Error: ", err.message);
       }
       setSubmitting(false);
-      // history.push("/");
+      history.push("/");
     },
     [history]
   );
