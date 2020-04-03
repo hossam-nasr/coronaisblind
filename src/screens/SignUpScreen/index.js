@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { SignUp } from "./styles";
+import { SignUp, ErrorMessageText } from "./styles";
 import { signUpUser } from "../../helpers";
 
 const SignUpScreen = ({ history }) => {
@@ -50,7 +50,7 @@ const SignUpScreen = ({ history }) => {
                 <div className="form-group">
                   <label>Email address</label>
                   <Field name="email" type="email" className="form-control" />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage name="email" component={ErrorMessageText} />
                   <small id="emailHelp" className="form-text text-muted">
                     We'll never share your email with anyone else.
                   </small>
@@ -62,7 +62,7 @@ const SignUpScreen = ({ history }) => {
                     type="password"
                     className="form-control"
                   />
-                  <ErrorMessage name="password" component="div" />
+                  <ErrorMessage name="password" component={ErrorMessageText} />
                 </div>
                 <button
                   type="submit"
