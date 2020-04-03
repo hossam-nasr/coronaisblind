@@ -8,20 +8,22 @@ const SignUpScreen = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await app
+        const { user } = await app
           .auth()
-          .createUserWithEmailAndPassword(email.value, password.value).then(function({user}){
-            console.log(user.uid);
-            app.firestore().collection("users").doc(user.uid).set({
-              email: user.email,
-              registration_date: Date.now()
-          })
-          }).catch(function(error){
-            console.log(error);
-          })
+          .createUserWithEmailAndPassword(email.value, password.value);
+
+        await app
+          .firestore()
+          .collection("users")
+          .doc(user.uid)
+          .set({
+            email: user.email,
+            registration_date: Date.now()
+          });
+
         history.push("/");
       } catch (error) {
-        alert(error);
+        console.log("Encountered error: " + error.message);
       }
     },
     [history]
