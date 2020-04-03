@@ -1,47 +1,79 @@
 import React, { useCallback } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SignUp } from "./styles";
 import { signUpUser } from "../../helpers";
 
 const SignUpScreen = ({ history }) => {
   const handleSignUp = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
+    async ({ email, password }, { setSubmitting }) => {
       try {
         await signUpUser({
-          email: email.value,
-          password: password.value
+          email,
+          password
         });
       } catch (err) {
         console.error("Error: ", err.message);
       }
-
+      setSubmitting(false);
       history.push("/");
     },
     [history]
   );
+
+  const validateForm = useCallback(({ email, password }) => {
+    const errors = {};
+    if (!email) {
+      errors.email = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
+      errors.email = "Invalid email address";
+    }
+    if (!password) {
+      errors.password = "Required";
+    } else if (password.length < 8) {
+      errors.password = "Must be 8 characters long";
+    }
+    return errors;
+  }, []);
 
   return (
     <div className="container">
       <SignUp>
         <div className="jumbotron">
           <h2>Sign Up Now!</h2>
-          <form onSubmit={handleSignUp}>
-            <div className="form-group">
-              <label>Email address</label>
-              <input name="email" type="email" className="form-control" />
-              <small id="emailHelp" className="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input name="password" type="password" className="form-control" />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validate={validateForm}
+            onSubmit={handleSignUp}
+          >
+            {({ isSubmitting, errors }) => (
+              <Form>
+                <div className="form-group">
+                  <label>Email address</label>
+                  <Field name="email" type="email" className="form-control" />
+                  <ErrorMessage name="email" component="div" />
+                  <small id="emailHelp" className="form-text text-muted">
+                    We'll never share your email with anyone else.
+                  </small>
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                  <Field
+                    name="password"
+                    type="password"
+                    className="form-control"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting || Object.keys(errors).length}
+                  className="btn btn-primary"
+                >
+                  Submit
+                </button>
+              </Form>
+            )}
+          </Formik>
         </div>
       </SignUp>
     </div>
