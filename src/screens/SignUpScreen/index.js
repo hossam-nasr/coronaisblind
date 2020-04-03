@@ -7,17 +7,37 @@ import { signUpUser } from "../../helpers";
 
 const SignUpScreen = ({ history }) => {
   const handleSignUp = useCallback(
-    async ({ email, password }, { setSubmitting }) => {
+    async (
+      {
+        email,
+        password,
+        firstName,
+        lastName,
+        quarantineLocation,
+        times,
+        venmo,
+        gender,
+        lookingFor
+      },
+      { setSubmitting }
+    ) => {
       try {
         await signUpUser({
           email,
-          password
+          password,
+          firstName,
+          lastName,
+          quarantineLocation,
+          times,
+          venmo,
+          gender,
+          lookingFor
         });
       } catch (err) {
         console.error("Error: ", err.message);
       }
       setSubmitting(false);
-      history.push("/");
+      // history.push("/");
     },
     [history]
   );
