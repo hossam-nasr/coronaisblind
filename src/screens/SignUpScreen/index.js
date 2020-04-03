@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { SignUp } from "./styles";
-import app from "../../firebase";
+import { signUpUser } from "../../helpers";
 
 const SignUpScreen = ({ history }) => {
   const handleSignUp = useCallback(
@@ -8,23 +8,15 @@ const SignUpScreen = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        const { user } = await app
-          .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
-
-        await app
-          .firestore()
-          .collection("users")
-          .doc(user.uid)
-          .set({
-            email: user.email,
-            registration_date: Date.now()
-          });
-
-        history.push("/");
-      } catch (error) {
-        console.log("Encountered error: " + error.message);
+        await signUpUser({
+          email: email.value,
+          password: password.value
+        });
+      } catch (err) {
+        console.error("Error: ", err.message);
       }
+
+      history.push("/");
     },
     [history]
   );
