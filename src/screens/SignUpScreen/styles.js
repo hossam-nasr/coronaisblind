@@ -16,8 +16,3 @@ export const Container = styled.div`
 export const SignUp = styled.div`
   margin: 5vh;
 `;
-
-export const ErrorMessageText = styled.small`
-  font-size: 11px;
-  color: ${themeGet("colors.error")};
-`;
