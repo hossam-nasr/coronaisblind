@@ -24,8 +24,8 @@ const LoginScreen = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
-      console.log("Already Logged In")
-      return <Redirect to="/" />;
+    console.log("Already Logged In");
+    return <Redirect to="/" />;
   }
 
   return (
