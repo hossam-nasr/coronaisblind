@@ -10,7 +10,15 @@ const SignUpScreen = ({ history }) => {
       try {
         await app
           .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
+          .createUserWithEmailAndPassword(email.value, password.value).then(function({user}){
+            console.log(user.uid);
+            app.firestore().collection("users").doc(user.uid).set({
+              email: user.email,
+              registration_date: Date.now()
+          })
+          }).catch(function(error){
+            console.log(error);
+          })
         history.push("/");
       } catch (error) {
         alert(error);

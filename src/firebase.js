@@ -1,5 +1,7 @@
 import * as firebase from 'firebase'
 import "firebase/auth"
+import 'firebase/firestore';
+
 // WARNING: CONFIGURATION HAS TO BE SET TO ENVIRONMENT BEFORE PRODUCTION YA2EMA HANROO7 FE DAHYA
 
 const app = firebase.initializeApp({
