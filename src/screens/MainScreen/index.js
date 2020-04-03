@@ -1,16 +1,14 @@
 import React from "react";
-import { Container, Title, Subtitle, Button, ButtonContainer } from "./styles";
-import { Link } from "react-router-dom";
+import { Container, Title, Subtitle, ButtonContainer } from "./styles";
+import app from "../../firebase"
+// import { Link } from "react-router-dom";
 
 const MainScreen = () => (
   <Container>
     <Title>Welcome to Corona Is Blind!</Title>
     <Subtitle>We are currently in Week 3!</Subtitle>
     <ButtonContainer>
-      <Button>Sign In</Button>
-      <Link to="/signup">
-        <Button>Sign Up</Button>
-      </Link>
+      <button onClick={() => app.auth().signOut()}>Sign Out</button>
     </ButtonContainer>
   </Container>
 );

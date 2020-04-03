@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.nav{
+  height: 11vh;
+}
+
+.signup{
+  margin: 5vh;;
+}

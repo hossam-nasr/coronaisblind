@@ -12,3 +12,7 @@ export const Container = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 `;
+
+export const SignUp = styled.div`
+  margin: 5vh;
+`;
