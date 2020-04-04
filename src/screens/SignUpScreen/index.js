@@ -42,7 +42,7 @@ const SignUpScreen = ({ history }) => {
     [history]
   );
 
-  const validateForm = useCallback(({ email, password }) => {
+  const validateForm = useCallback(({ email, password, passwordConfirm }) => {
     const errors = {};
     if (!email) {
       errors.email = "Required";
@@ -54,6 +54,10 @@ const SignUpScreen = ({ history }) => {
     } else if (password.length < 8) {
       errors.password = "Must be 8 characters long";
     }
+    if(!passwordConfirm)
+      errors.passwordConfirm = "Required";
+    else if(passwordConfirm !== password)
+      errors.passwordConfirm = "Passwords do not match";
     return errors;
   }, []);
 
