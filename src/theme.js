@@ -8,7 +8,8 @@ const theme = {
     silver: "#E5DEFF",
     beige: "#E8CF8C",
     maroon: "#7E6E23",
-    lightGold: "#B2AB99"
+    lightGold: "#B2AB99",
+    error: "#c40300"
   }
 };
 
