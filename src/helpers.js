@@ -31,7 +31,8 @@ export const signUpUser = async ({
         venmo,
         gender,
         lookingFor,
-        registration_date: Date.now()
+        registration_date: Date.now(),
+        session: "HG6WXFERbTuQRT7dtzyY"
       });
   } catch (error) {
     console.error("Encountered error: " + error.message);
