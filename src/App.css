@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #673AB7;
 }
 
 .App-logo {
@@ -37,10 +38,11 @@
   }
 }
 
-.nav{
-  height: 11vh;
+.center{
+  text-align: center;
 }
 
-.signup{
-  margin: 5vh;;
+a{
+  text-decoration: none;
+  color: white;
 }

@@ -1,16 +1,16 @@
 import React from "react";
 import Option from "./components/Option";
-import { ErrorMessageText } from "./styles";
+import { ErrorMessageText, InputClass } from "./styles";
 import { Field, ErrorMessage } from "formik";
 
 const FormField = ({ label, name, type, note, options }) => (
-  <div className="form-group">
-    <label>{label}</label>
-    {type !== "checkbox" && type !== "radio" && (
-      <Field name={name} type={type} className="form-control" required />
-    )}
+  <div>
+    <h4>{label}</h4>
+      {type !== "checkbox" && type !== "radio" && (
+        <Field name={name} type={type} style={InputClass} required />
+      )}
     <ErrorMessage name={name} component={ErrorMessageText} />
-    {note && <small className="form-text text-muted">{note}</small>}
+    {note && <small>{note}</small>}
     {options &&
       options.map(({ label, value }) => (
         <Option

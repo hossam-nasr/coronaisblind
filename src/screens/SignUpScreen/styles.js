@@ -8,11 +8,13 @@ export const Container = styled.div`
   min-height: 100vh;
   background-color: ${themeGet("colors.background")};
   align-items: center;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 export const SignUp = styled.div`
-  margin: 5vh;
+  margin: 10vh;
+  padding: 10vh;
+  background-color: #9c88ff;
+  max-width: 25%;
+  border-radius: 2vh;
+  color: #f5f6fa;
 `;

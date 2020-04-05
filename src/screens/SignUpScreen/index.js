@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import SignUpForm from "./components/SignUpForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
-import { SignUp } from "./styles";
+import { SignUp, Container } from "./styles";
 import { signUpUser } from "../../helpers";
 
 const SignUpScreen = ({ history }) => {
@@ -67,26 +67,24 @@ const SignUpScreen = ({ history }) => {
   });
 
   return (
-    <div className="container">
-      <SignUp>
-        <div className="jumbotron">
-          <h2>Sign Up Now!</h2>
-          <Formik
-            initialValues={initialValues}
-            validate={validateForm}
-            onSubmit={handleSignUp}
-          >
-            {({ isSubmitting, errors }) => (
-              <SignUpForm
-                isSubmitting={isSubmitting}
-                errors={errors}
-                formFields={formFields}
-              />
-            )}
-          </Formik>
-        </div>
-      </SignUp>
-    </div>
+      <Container>
+        <SignUp>
+            <h2 className="center">Sign Up Now!</h2>
+            <Formik
+              initialValues={initialValues}
+              validate={validateForm}
+              onSubmit={handleSignUp}
+            >
+              {({ isSubmitting, errors }) => (
+                <SignUpForm
+                  isSubmitting={isSubmitting}
+                  errors={errors}
+                  formFields={formFields}
+                />
+              )}
+            </Formik>
+        </SignUp>
+      </Container>
   );
 };
 

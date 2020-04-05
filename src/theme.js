@@ -1,8 +1,8 @@
 const theme = {
   colors: {
-    background: "white",
+    background: "#673AB7",
     primary: "#120B3F",
-    secondary: "#5C0E73",
+    secondary: "#9C27B0",
     tertiary: "#37096C",
     gold: "#EDBF2B",
     silver: "#E5DEFF",
