@@ -1,25 +1,49 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../../Auth.js";
-import { Login } from "./styles";
 import app from "../../firebase";
+import LoginForm from "./components/SignUpForm";
+import formFields from "./formFields";
+import { Formik } from "formik";
+import { Login, Container } from "./styles";
 
 const LoginScreen = ({ history }) => {
   const handleLogin = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
+    async (
+      {
+        email,
+        password,
+      },
+      { setSubmitting }
+    ) => {
       try {
         await app
           .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
+          .signInWithEmailAndPassword(email, password);
+        setSubmitting(false);
         history.push("/");
       } catch (error) {
-        alert(error);
+        console.log(error);
       }
     },
     [history]
   );
+
+  const validateForm = useCallback(({ email, password }) => {
+    const errors = {};
+    if (!email) {
+      errors.email = "Required";
+    }
+    if (!password) {
+      errors.password = "Required";
+    } 
+    return errors;
+  }, []);
+
+  const initialValues = {};
+  formFields.map(({ name, initialValue }) => {
+    initialValues[name] = initialValue;
+  });
 
   const { currentUser } = useContext(AuthContext);
 
@@ -29,26 +53,24 @@ const LoginScreen = ({ history }) => {
   }
 
   return (
-    <div className="container">
-      <Login>
-        <div className="jumbotron">
-          <h2>Login!</h2>
-          <form onSubmit={handleLogin}>
-            <div className="form-group">
-              <label>Email address</label>
-              <input name="email" type="email" className="form-control" />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input name="password" type="password" className="form-control" />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
-        </div>
-      </Login>
-    </div>
+      <Container>
+        <Login>
+            <h2 className="center">Login!</h2>
+            <Formik
+              initialValues={initialValues}
+              validate={validateForm}
+              onSubmit={handleLogin}
+            >
+              {({ isSubmitting, errors }) => (
+                <LoginForm
+                  isSubmitting={isSubmitting}
+                  errors={errors}
+                  formFields={formFields}
+                />
+              )}
+            </Formik>
+        </Login>
+      </Container>
   );
 };
 
