@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   flex: 1;
   min-height: 100vh;
-  background-color: ${themeGet("colors.background")};
+  // background-color: ${themeGet("colors.background")};
   align-items: center;
 `;
 
@@ -17,4 +17,5 @@ export const SignUp = styled.div`
   max-width: 25%;
   border-radius: 2vh;
   color: #f5f6fa;
+  background: rgba(156, 136, 255, 0.2)
 `;

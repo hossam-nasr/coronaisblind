@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 
 export const Nav = styled.nav`
-    background-color: ${themeGet("colors.background")};
+    // background-color: ${themeGet("colors.background")};
     display: flex;
     flex-direction: row;
     padding: 0;
