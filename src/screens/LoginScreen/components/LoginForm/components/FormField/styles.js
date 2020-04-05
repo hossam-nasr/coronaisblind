@@ -6,7 +6,7 @@ export const ErrorMessageText = styled.small`
   font-size: 11px;
   color: ${themeGet("colors.error")};
   display: block;
-`
+`;
 
 export const Hakl = styled(Field)`
   font-size: 18px;

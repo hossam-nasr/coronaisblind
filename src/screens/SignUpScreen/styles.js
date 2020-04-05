@@ -6,13 +6,15 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   flex: 1;
   min-height: 100vh;
-  background-color: ${themeGet("colors.background")};
   align-items: center;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 export const SignUp = styled.div`
-  margin: 5vh;
+  margin: 10vh;
+  padding: 10vh;
+  color: ${themeGet("colors.secondary")};
+  max-width: 25%;
+  border-radius: 2vh;
+  color: ${themeGet("colors.tertiary")};
+  background: ${themeGet("colors.transparentCard")}
 `;

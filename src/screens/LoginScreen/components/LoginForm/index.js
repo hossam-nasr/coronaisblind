@@ -2,25 +2,23 @@ import React from "react";
 import FormField from "./components/FormField";
 import { Form } from "formik";
 
-const SignUpForm = ({ isSubmitting, errors, formFields }) => (
+const LoginForm = ({ isSubmitting, errors, formFields }) => (
   <Form>
-    {formFields.map(({ label, name, type, note, options }) => (
+    {formFields.map(({ label, name, type }) => (
       <FormField
         key={name}
         label={label}
         name={name}
         type={type}
-        note={note}
-        options={options}
       />
     ))}
     <button
       type="submit"
       disabled={isSubmitting || Object.keys(errors).length}
     >
-      Submit
+      Login
     </button>
   </Form>
 );
 
-export default SignUpForm;
+export default LoginForm;
