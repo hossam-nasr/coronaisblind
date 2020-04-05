@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   flex: 1;
   min-height: 100vh;
-  background-color: ${themeGet("colors.background")};
   align-items: center;
   background-size: contain;
   background-position: center;
@@ -18,6 +17,7 @@ export const Title = styled.div`
   font-size: 4em;
   color: ${themeGet("colors.lightGold")};
   font-family: sans-serif;
+  padding: 5vh;
 `;
 
 export const Subtitle = styled.div`
