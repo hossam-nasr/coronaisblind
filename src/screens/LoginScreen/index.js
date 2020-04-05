@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../../Auth.js";
 import app from "../../firebase";
-import LoginForm from "./components/SignUpForm";
+import LoginForm from "./components/LoginForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
 import { Login, Container } from "./styles";
