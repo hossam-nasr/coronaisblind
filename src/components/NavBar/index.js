@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Auth.js";
 import "../../App.css";
-import { Link } from "react-router-dom";
-import { Nav, NavItem, Logo, RightSec, LeftSec } from "./styles"
+import { Nav, NavItem, Logo, RightSec, LeftSec, Rabet } from "./styles"
 
 const NavBar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -11,34 +10,34 @@ const NavBar = () => {
     <Nav>
       <LeftSec>
         <NavItem>
-          <Link to="/">
+          <Rabet to="/">
             Home
-          </Link>
+          </Rabet>
         </NavItem>
         <NavItem>
-          <Link to="/about">
+          <Rabet to="/about">
             About
-          </Link>
+          </Rabet>
         </NavItem>
       </LeftSec>
       <Logo>
-          <Link to="/">
+          <Rabet to="/">
             Corona is Blind
-          </Link>
+          </Rabet>
         </Logo>
       <RightSec>
         <NavItem>
           {!currentUser && (
-            <Link to="/login">
+            <Rabet to="/login">
               Login
-            </Link>
+            </Rabet>
           )}
         </NavItem>
         <NavItem>
           {!currentUser && (
-          <Link to="/signup">
+          <Rabet to="/signup">
             Sign Up
-          </Link>
+          </Rabet>
           )}
           </NavItem>
       </RightSec>

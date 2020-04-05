@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 export const Container = styled.div`
   display: flex;
@@ -11,9 +12,8 @@ export const Container = styled.div`
 export const Login = styled.div`
   margin: 10vh;
   padding: 10vh;
-  background-color: #9c88ff;
   max-width: 25%;
   border-radius: 2vh;
-  color: #f5f6fa;
-  background: rgba(156, 136, 255, 0.2)
+  color: ${themeGet("colors.tertiary")};
+  background: ${themeGet("colors.transparentCard")}
 `;

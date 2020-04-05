@@ -6,6 +6,7 @@ import LoginForm from "./components/LoginForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
 import { Login, Container } from "./styles";
+import { Header } from "../../components/Header"
 
 const LoginScreen = ({ history }) => {
   const handleLogin = useCallback(
@@ -23,7 +24,7 @@ const LoginScreen = ({ history }) => {
         setSubmitting(false);
         history.push("/");
       } catch (error) {
-        console.log(error);
+        console.error("Error: ", error.message);
       }
     },
     [history]
@@ -55,7 +56,7 @@ const LoginScreen = ({ history }) => {
   return (
       <Container>
         <Login>
-            <h2 className="center">Login!</h2>
+            <Header title="Login!"/>
             <Formik
               initialValues={initialValues}
               validate={validateForm}

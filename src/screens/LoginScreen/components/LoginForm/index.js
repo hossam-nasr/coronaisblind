@@ -15,7 +15,6 @@ const LoginForm = ({ isSubmitting, errors, formFields }) => (
     <button
       type="submit"
       disabled={isSubmitting || Object.keys(errors).length}
-      className="btn btn-primary"
     >
       Login
     </button>

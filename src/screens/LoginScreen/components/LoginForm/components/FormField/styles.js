@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
+import { Field } from "formik";
 
 export const ErrorMessageText = styled.small`
   font-size: 11px;
@@ -7,12 +8,12 @@ export const ErrorMessageText = styled.small`
   display: block;
 `;
 
-export const InputClass = {
-  fontSize: "18px",
-  padding: "10px 10px 10px 5px",
-  display: "block",
-  width: "100%",
-  border: "none",
-  backgroundColor: "#f5f6fa",
-  borderRadius: "5vh"
-}
+export const Hakl = styled(Field)`
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: ${themeGet("colors.tertiary")};
+  border-radius: 5vh;
+` 

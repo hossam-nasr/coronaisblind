@@ -4,6 +4,7 @@ import formFields from "./formFields";
 import { Formik } from "formik";
 import { SignUp, Container } from "./styles";
 import { signUpUser } from "../../helpers";
+import { Header } from "../../components/Header"
 
 const SignUpScreen = ({ history }) => {
   const handleSignUp = useCallback(
@@ -69,7 +70,7 @@ const SignUpScreen = ({ history }) => {
   return (
       <Container>
         <SignUp>
-            <h2 className="center">Sign Up Now!</h2>
+            <Header title="Sign Up Now!"></Header>
             <Formik
               initialValues={initialValues}
               validate={validateForm}
