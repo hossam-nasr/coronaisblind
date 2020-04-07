@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Login = styled.div`
   margin: 10vh;
   padding: 10vh;
-  max-width: 25%;
+  max-width: 30%;
   border-radius: 2vh;
   color: ${themeGet("colors.tertiary")};
   background: ${themeGet("colors.transparentCard")}

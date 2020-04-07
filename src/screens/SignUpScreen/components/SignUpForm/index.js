@@ -1,9 +1,9 @@
 import React from "react";
 import FormField from "./components/FormField";
-import { Form } from "formik";
+import { Estemara, Button } from "./styles"
 
 const SignUpForm = ({ isSubmitting, errors, formFields }) => (
-  <Form>
+  <Estemara>
     {formFields.map(({ label, name, type, note, options }) => (
       <FormField
         key={name}
@@ -14,13 +14,13 @@ const SignUpForm = ({ isSubmitting, errors, formFields }) => (
         options={options}
       />
     ))}
-    <button
+    <Button
       type="submit"
       disabled={isSubmitting || Object.keys(errors).length}
     >
-      Submit
-    </button>
-  </Form>
+      Sign Up
+    </Button>
+  </Estemara>
 );
 
 export default SignUpForm;

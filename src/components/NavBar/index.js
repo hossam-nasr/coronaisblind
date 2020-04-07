@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Auth.js";
 import "../../App.css";
 import { Nav, NavItem, Logo, RightSec, LeftSec, Rabet } from "./styles"
+import app from "../../firebase";
 
 const NavBar = () => {
   const { currentUser } = useContext(AuthContext);
@@ -26,20 +27,27 @@ const NavBar = () => {
           </Rabet>
         </Logo>
       <RightSec>
+      {!currentUser && (
         <NavItem>
-          {!currentUser && (
             <Rabet to="/login">
               Login
             </Rabet>
-          )}
         </NavItem>
+      )}
+      {!currentUser && (
         <NavItem>
-          {!currentUser && (
           <Rabet to="/signup">
             Sign Up
           </Rabet>
-          )}
-          </NavItem>
+        </NavItem>
+      )}
+      {currentUser && (
+        <NavItem>
+          <Rabet onClick={() => app.auth().signOut()}>
+            Sign Out
+          </Rabet>
+        </NavItem>
+      )}
       </RightSec>
     </Nav>
     );

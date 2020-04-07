@@ -13,7 +13,7 @@ export const SignUp = styled.div`
   margin: 10vh;
   padding: 10vh;
   color: ${themeGet("colors.secondary")};
-  max-width: 25%;
+  max-width: 30%;
   border-radius: 2vh;
   color: ${themeGet("colors.tertiary")};
   background: ${themeGet("colors.transparentCard")}
