@@ -27,7 +27,11 @@ function App() {
                 <Route exact path="/" component={MainScreen} />
                 <Route exact path="/login" component={LoginScreen} />
                 <Route exact path="/signup" component={SignUpScreen} />
-                <Route exact path="/review" component={ReviewScreen} />
+                <Route
+                  exact
+                  path="/review?callId=:callId"
+                  component={ReviewScreen}
+                />
               </Switch>
             </ScrollToTop>
           </RootContainer>
