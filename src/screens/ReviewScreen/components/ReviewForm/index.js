@@ -11,8 +11,9 @@ import {
   ReviewCard,
   ButtonContainer
 } from "./styles";
+import { postCallReview } from "../../../../helpers";
 
-const ReviewForm = ({ name, time, id }) => {
+const ReviewForm = ({ name, time, callId, theReviewer, theReviewed }) => {
   /*  const [rating, setRating] = useState(0); */
 
   const validateForm = useCallback(({ rating, showedUp }) => {
@@ -28,9 +29,16 @@ const ReviewForm = ({ name, time, id }) => {
   }, []);
 
   const handleReview = useCallback(
-    ({ showedUp, rating }, { setSubmitting }) => {
+    async ({ showedUp, rating }, { setSubmitting }) => {
       try {
-        console.log(`Rating is ${rating} and showedUp is ${showedUp}`);
+        showedUpBool = showedUp === "true";
+        await postCallReview({
+          callId,
+          theReviewer,
+          theReviewed,
+          review: rating,
+          showedUp: showedUpBool
+        });
         setSubmitting(false);
       } catch (error) {
         console.error("Error: ", error.message);

@@ -23,7 +23,13 @@ const ReviewScreen = () => {
   return (
     <Container>
       {call ? (
-        <ReviewForm name={call.name} time={call.time} id={call.id} />
+        <ReviewForm
+          name={call.name}
+          time={call.time}
+          callId={call.id}
+          theReviewer={currentUser.id}
+          theReviewed={call.otherCallerId}
+        />
       ) : (
         <ErrorMessage />
       )}

@@ -98,5 +98,30 @@ export const getCallObj = async (callId, userId) => {
   }
   const callerData = callerDoc.data();
   callData.name = callerData.firstName;
+  callData.otherCallerId = callerId;
   return callData;
+};
+
+export const postCallReview = async ({
+  callId,
+  review,
+  showedUp,
+  theReviewed,
+  theReviewer
+}) => {
+  const docRef = app
+    .firestore()
+    .collection("callReviews")
+    .doc();
+
+  const reviewId = docRef.id;
+
+  return await docRef.set({
+    reviewId,
+    callId,
+    review,
+    showedUp,
+    theReviewed,
+    theReviewer
+  });
 };
