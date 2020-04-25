@@ -22,7 +22,11 @@ const ReviewScreen = () => {
 
   return (
     <Container>
-      {call ? <ReviewForm call={call} /> : <ErrorMessage />}
+      {call ? (
+        <ReviewForm name={call.name} time={call.time} id={call.id} />
+      ) : (
+        <ErrorMessage />
+      )}
     </Container>
   );
 };
