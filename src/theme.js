@@ -4,7 +4,7 @@ const theme = {
     primary: "#120B3F",
     secondary: "#9c88ff",
     tertiary: "#f5f6fa",
-    quaternary: "#f47fae",
+    quaternary: "rgba(244, 127, 174, 0.35)",
     gold: "#EDBF2B",
     silver: "#E5DEFF",
     beige: "#E8CF8C",
@@ -19,23 +19,23 @@ const theme = {
   fonts: {
     title: {
       family: "Gravity, sans-serif",
-      size: "50px",
+      size: "45px",
       weight: 700,
-      lineHeight: "60px",
-      letterSpacing: "5px"
+      lineHeight: "40px",
+      letterSpacing: "4px"
     },
     subtitle: {
-      family: `"Gravity - Ultra Light Italic", Gravity, sans-serif`,
-      size: "30px",
+      family: `"Gravity-UltraLightItalic", Gravity, sans-serif`,
+      size: "25px",
       weight: 400,
-      lineHeight: "40px",
+      lineHeight: "30px",
       letterSpacing: "3px"
     },
     textNormal: {
       family: `"Gravity - Light", Gravity, sans-serif`,
       weight: 300,
       lineHeight: "40px",
-      letterSpacing: "4px"
+      letterSpacing: "5px"
     }
   }
 };
