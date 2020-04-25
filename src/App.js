@@ -9,6 +9,7 @@ import theme from "./theme";
 import ScrollToTop from "./components/ScrollToTop";
 import NavBar from "./components/NavBar";
 import { UserProvider } from "./Auth";
+import RootContainer from "./components/RootContainer";
 
 function App() {
   return (
@@ -19,15 +20,17 @@ function App() {
           forceRefresh
           onUpdate={() => window.scrollTo(0, 0)}
         >
-          <NavBar />
-          <ScrollToTop>
-            <Switch>
-              <Route exact path="/" component={MainScreen} />
-              <Route exact path="/login" component={LoginScreen} />
-              <Route exact path="/signup" component={SignUpScreen} />
-              <Route exact path="/review" component={ReviewScreen} />
-            </Switch>
-          </ScrollToTop>
+          <RootContainer>
+            <NavBar />
+            <ScrollToTop>
+              <Switch>
+                <Route exact path="/" component={MainScreen} />
+                <Route exact path="/login" component={LoginScreen} />
+                <Route exact path="/signup" component={SignUpScreen} />
+                <Route exact path="/review" component={ReviewScreen} />
+              </Switch>
+            </ScrollToTop>
+          </RootContainer>
         </BrowserRouter>
       </UserProvider>
     </ThemeProvider>
