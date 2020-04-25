@@ -1,6 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Subtitle, ButtonContainer } from "./styles";
+import {
+  Container,
+  Subtitle,
+  ButtonContainer,
+  Button,
+  StyledRouterLink
+} from "./styles";
 import { Title } from "./styles";
 
 const ErrorMessage = () => (
@@ -8,9 +13,9 @@ const ErrorMessage = () => (
     <Title>Uh oh...</Title>
     <Subtitle>Looks like something went wrong.</Subtitle>
     <ButtonContainer>
-      <Link to="/">
-        <Subtitle>Go back..</Subtitle>
-      </Link>
+      <StyledRouterLink to="/">
+        <Button>Go back..</Button>
+      </StyledRouterLink>
     </ButtonContainer>
   </Container>
 );

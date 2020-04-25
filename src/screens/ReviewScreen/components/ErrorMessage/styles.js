@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -35,4 +36,28 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 20vh;
+`;
+
+export const Button = styled.div`
+  text-align: center;
+  background-color: ${themeGet("colors.secondary")};
+  color: ${themeGet("colors.tertiary")};
+  border: none;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 2vh;
+  margin: 5vh 0 0 0;
+  cursor: pointer;
+`;
+
+export const StyledRouterLink = styled(Link)`
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 `;

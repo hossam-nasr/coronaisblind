@@ -13,7 +13,14 @@ import {
 } from "./styles";
 import { postCallReview } from "../../../../helpers";
 
-const ReviewForm = ({ name, time, callId, theReviewer, theReviewed }) => {
+const ReviewForm = ({
+  name,
+  time,
+  callId,
+  theReviewer,
+  theReviewed,
+  setReviewComplete
+}) => {
   /*  const [rating, setRating] = useState(0); */
 
   const validateForm = useCallback(({ rating, showedUp }) => {
@@ -31,7 +38,7 @@ const ReviewForm = ({ name, time, callId, theReviewer, theReviewed }) => {
   const handleReview = useCallback(
     async ({ showedUp, rating }, { setSubmitting }) => {
       try {
-        showedUpBool = showedUp === "true";
+        const showedUpBool = showedUp === "true";
         await postCallReview({
           callId,
           theReviewer,
@@ -40,6 +47,7 @@ const ReviewForm = ({ name, time, callId, theReviewer, theReviewed }) => {
           showedUp: showedUpBool
         });
         setSubmitting(false);
+        setReviewComplete();
       } catch (error) {
         console.error("Error: ", error.message);
       }
