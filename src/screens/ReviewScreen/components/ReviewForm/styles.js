@@ -35,7 +35,6 @@ export const ButtonContainer = styled.div`
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20vh;
 `;
 
 export const Button = styled.button`
@@ -53,16 +52,10 @@ export const Button = styled.button`
 export const ReviewCard = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  margin: 10vh;
-  padding: 10vh;
-  max-width: 30%;
+  margin: 5vh;
+  padding: 5vh;
+  max-width: 60%;
   border-radius: 2vh;
   color: ${themeGet("colors.tertiary")};
   background: ${themeGet("colors.transparentCard")};
-`;
-
-export const ErrorMessageText = styled.small`
-  font-size: 11px;
-  color: ${themeGet("colors.error")};
-  display: block;
 `;

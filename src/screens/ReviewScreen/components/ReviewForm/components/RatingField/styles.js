@@ -6,3 +6,9 @@ export const ErrorMessageText = styled.small`
   color: ${themeGet("colors.error")};
   display: block;
 `;
+
+export const FieldContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

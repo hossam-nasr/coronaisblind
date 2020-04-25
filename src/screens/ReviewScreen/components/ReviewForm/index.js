@@ -3,7 +3,14 @@ import { Header } from "../../../../components/Header";
 import RatingField from "./components/RatingField";
 import BooleanField from "./components/BooleanField";
 import { Formik, Form } from "formik";
-import { Container, Title, Subtitle, Button, ReviewCard } from "./styles";
+import {
+  Container,
+  Title,
+  Subtitle,
+  Button,
+  ReviewCard,
+  ButtonContainer
+} from "./styles";
 
 const ReviewForm = ({ name, time, id }) => {
   /*  const [rating, setRating] = useState(0); */
@@ -47,14 +54,16 @@ const ReviewForm = ({ name, time, id }) => {
         >
           {({ isSubmitting, errors }) => (
             <Form>
-              <RatingField />
               <BooleanField />
-              <Button
-                disabled={isSubmitting || Object.keys(errors).length}
-                type="submit"
-              >
-                Submit
-              </Button>
+              <RatingField />
+              <ButtonContainer>
+                <Button
+                  disabled={isSubmitting || Object.keys(errors).length}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </ButtonContainer>
             </Form>
           )}
         </Formik>
