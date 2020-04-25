@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
-  min-height: 100vh;
   align-items: center;
   background-size: contain;
   background-position: center;
@@ -25,9 +24,6 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   text-align: center;
-/*   font-size: 2em;
-  color: ${themeGet("colors.lightGold")};
-  font-family: sans-serif; */
   font-size: ${themeGet("fonts.subtitle.size")};
   font-family: ${themeGet("fonts.subtitle.family")};
   font-weight: ${themeGet("fonts.subtitle.weight")};

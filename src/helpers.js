@@ -56,7 +56,7 @@ export const getCallList = async user => {
   return [];
 };
 
-const getCallObj = async (callId, userId) => {
+export const getCallObj = async (callId, userId) => {
   const callDoc = await app
     .firestore()
     .collection("calls")
