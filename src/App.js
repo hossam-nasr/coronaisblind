@@ -7,13 +7,12 @@ import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import ScrollToTop from "./components/ScrollToTop";
 import NavBar from "./components/NavBar";
-import { AuthProvider } from "./Auth";
+import { UserProvider } from "./Auth";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        {/* NOTE: TODO: CHANGE basename to "/" WHEN SWITCHING TO CUSTOM DOMAIN NAME */}
+      <UserProvider>
         <BrowserRouter
           basename="/"
           forceRefresh
@@ -28,7 +27,7 @@ function App() {
             </Switch>
           </ScrollToTop>
         </BrowserRouter>
-      </AuthProvider>
+      </UserProvider>
     </ThemeProvider>
   );
 }
