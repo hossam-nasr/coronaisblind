@@ -5,8 +5,6 @@ import { Container, Title, Subtitle } from "./styles";
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
 
-  console.log("Current User ", currentUser);
-
   return (
     <Container>
       <Title>Welcome to Corona Is Blind!</Title>

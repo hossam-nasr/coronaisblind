@@ -13,16 +13,17 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const setUpUserListener = userAuth => {
-    console.log("uid", userAuth.uid);
-    app
-      .firestore()
-      .collection("users")
-      .doc(userAuth.uid)
-      .onSnapshot(doc => {
-        const userData = doc.data();
-        userData["id"] = userAuth.uid;
-        setCurrentUser(userData);
-      });
+    if (userAuth) {
+      app
+        .firestore()
+        .collection("users")
+        .doc(userAuth.uid)
+        .onSnapshot(doc => {
+          const userData = doc.data();
+          userData["id"] = userAuth.uid;
+          setCurrentUser(userData);
+        });
+    }
   };
 
   // Render user profile returned from firebase
