@@ -52,3 +52,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const CallListContainer = styled.div`
+  margin-top: 30px;
+`;
