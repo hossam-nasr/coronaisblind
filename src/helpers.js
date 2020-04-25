@@ -23,6 +23,7 @@ export const signUpUser = async ({
       .collection("users")
       .doc(user.uid)
       .set({
+        id: user.uid,
         email: user.email,
         firstName,
         lastName,
