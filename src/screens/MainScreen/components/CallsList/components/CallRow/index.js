@@ -12,7 +12,7 @@ const CallsList = ({ id, past, name, time, url }) => (
     <Text>{time}</Text>
     <Text>{name}</Text>
     {past ? (
-      <StyledRouterLink to="/" target="_blank">
+      <StyledRouterLink to="/review" target="_blank">
         <Button>Review</Button>
       </StyledRouterLink>
     ) : (
