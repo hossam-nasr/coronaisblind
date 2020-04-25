@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
+  align-items: center;
 `;
 
 export const Title = styled.div`
@@ -35,4 +36,33 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 20vh;
+`;
+
+export const Button = styled.button`
+  text-align: center;
+  background-color: ${themeGet("colors.secondary")};
+  color: ${themeGet("colors.tertiary")};
+  border: none;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 2vh;
+  margin: 5vh 0 0 0;
+  cursor: pointer;
+`;
+
+export const ReviewCard = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10vh;
+  padding: 10vh;
+  max-width: 30%;
+  border-radius: 2vh;
+  color: ${themeGet("colors.tertiary")};
+  background: ${themeGet("colors.transparentCard")};
+`;
+
+export const ErrorMessageText = styled.small`
+  font-size: 11px;
+  color: ${themeGet("colors.error")};
+  display: block;
 `;
