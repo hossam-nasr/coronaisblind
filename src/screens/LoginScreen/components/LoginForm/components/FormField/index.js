@@ -2,7 +2,7 @@ import React from "react";
 import { ErrorMessageText, Hakl } from "./styles";
 import { ErrorMessage } from "formik";
 
-const FormField = ({ label, name, type, note, options }) => (
+const FormField = ({ label, name, type, note }) => (
   <div>
     <h4>{label}</h4>
     <Hakl name={name} type={type} required />
