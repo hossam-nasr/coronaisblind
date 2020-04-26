@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
-  align-items: center;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 export const Title = styled.div`
@@ -33,22 +30,34 @@ export const Subtitle = styled.div`
   font-style: italic;
 `;
 
-export const Button = styled.div`
-  text-align: center;
-  font-size: 1.5em;
-  color: ${themeGet("colors.silver")};
-  font-family: sans-serif;
-  margin: 20px;
-`;
-
 export const ButtonContainer = styled.div`
   display: flex;
   flex: 1;
-  flex-flow: row nowrap;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  padding-bottom: 20vh;
 `;
 
-export const CallListContainer = styled.div`
-  margin-top: 30px;
+export const Button = styled.div`
+  text-align: center;
+  background-color: ${themeGet("colors.secondary")};
+  color: ${themeGet("colors.tertiary")};
+  border: none;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 2vh;
+  margin: 5vh 0 0 0;
+  cursor: pointer;
+`;
+
+export const StyledRouterLink = styled(Link)`
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 `;

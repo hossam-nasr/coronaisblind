@@ -1,26 +1,18 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../../Auth.js";
+import { UserContext } from "../../Auth.js";
 import app from "../../firebase";
 import LoginForm from "./components/LoginForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
 import { Login, Container } from "./styles";
-import { Header } from "../../components/Header"
+import { Header } from "../../components/Header";
 
 const LoginScreen = ({ history }) => {
   const handleLogin = useCallback(
-    async (
-      {
-        email,
-        password,
-      },
-      { setSubmitting }
-    ) => {
+    async ({ email, password }, { setSubmitting }) => {
       try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email, password);
+        await app.auth().signInWithEmailAndPassword(email, password);
         setSubmitting(false);
         history.push("/");
       } catch (error) {
@@ -37,7 +29,7 @@ const LoginScreen = ({ history }) => {
     }
     if (!password) {
       errors.password = "Required";
-    } 
+    }
     return errors;
   }, []);
 
@@ -46,7 +38,7 @@ const LoginScreen = ({ history }) => {
     initialValues[name] = initialValue;
   });
 
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext(UserContext);
 
   if (currentUser) {
     console.log("Already Logged In");
@@ -54,24 +46,24 @@ const LoginScreen = ({ history }) => {
   }
 
   return (
-      <Container>
-        <Login>
-            <Header title="Login!"/>
-            <Formik
-              initialValues={initialValues}
-              validate={validateForm}
-              onSubmit={handleLogin}
-            >
-              {({ isSubmitting, errors }) => (
-                <LoginForm
-                  isSubmitting={isSubmitting}
-                  errors={errors}
-                  formFields={formFields}
-                />
-              )}
-            </Formik>
-        </Login>
-      </Container>
+    <Container>
+      <Login>
+        <Header title="Login!" />
+        <Formik
+          initialValues={initialValues}
+          validate={validateForm}
+          onSubmit={handleLogin}
+        >
+          {({ isSubmitting, errors }) => (
+            <LoginForm
+              isSubmitting={isSubmitting}
+              errors={errors}
+              formFields={formFields}
+            />
+          )}
+        </Formik>
+      </Login>
+    </Container>
   );
 };
 

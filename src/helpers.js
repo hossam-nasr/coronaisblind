@@ -23,6 +23,7 @@ export const signUpUser = async ({
       .collection("users")
       .doc(user.uid)
       .set({
+        id: user.uid,
         email: user.email,
         firstName,
         lastName,
@@ -35,6 +36,92 @@ export const signUpUser = async ({
         session: "HG6WXFERbTuQRT7dtzyY"
       });
   } catch (error) {
-    console.error("Encountered error: " + error.message);
+    console.error("Encountered error signing up: " + error.message);
   }
+};
+
+export const getCallList = async user => {
+  if (user && user.id && user.calls) {
+    try {
+      const calls = await Promise.all(
+        user.calls.map(async callId => {
+          return await getCallObj(callId, user.id);
+        })
+      );
+      return calls.filter(call => !!call);
+    } catch (err) {
+      console.error("Encountered error getting calls: ", err.message);
+    }
+  }
+  return [];
+};
+
+export const getCallObj = async (callId, userId) => {
+  const callDoc = await app
+    .firestore()
+    .collection("calls")
+    .doc(callId)
+    .get();
+
+  if (!callDoc.exists) {
+    console.error("Couldn't find call with ID: ", callId);
+    return;
+  }
+
+  const callData = callDoc.data();
+
+  let callerId;
+  if (callData && callData.user1Id === userId) {
+    // other caller must be user 2
+    callerId = callData.user2Id;
+  } else if (callData && callData.user2Id === userId) {
+    // other caller must be user 1
+    callerId = callData.user1Id;
+  } else {
+    // error
+    console.error(
+      `User with ID ${userId} not found on call with ID ${callData.id}`
+    );
+    return;
+  }
+  const callerDoc = await app
+    .firestore()
+    .collection("users")
+    .doc(callerId)
+    .get();
+
+  if (!callerDoc.exists) {
+    console.error(
+      `Encountered error retrieving call ${callId}: User ${callerId} not found.`
+    );
+    return;
+  }
+  const callerData = callerDoc.data();
+  callData.name = callerData.firstName;
+  callData.otherCallerId = callerId;
+  return callData;
+};
+
+export const postCallReview = async ({
+  callId,
+  review,
+  showedUp,
+  theReviewed,
+  theReviewer
+}) => {
+  const docRef = app
+    .firestore()
+    .collection("callReviews")
+    .doc();
+
+  const reviewId = docRef.id;
+
+  return await docRef.set({
+    reviewId,
+    callId,
+    review,
+    showedUp,
+    theReviewed,
+    theReviewer
+  });
 };
