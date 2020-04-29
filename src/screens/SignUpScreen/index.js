@@ -1,12 +1,14 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import SignUpForm from "./components/SignUpForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
 import { SignUp, Container } from "./styles";
 import { signUpUser } from "../../helpers";
-import { Header } from "../../components/Header"
+import { Header } from "../../components/Header";
+import { SessionContext } from "../../Session";
 
 const SignUpScreen = ({ history }) => {
+  const { currentSession } = useContext(SessionContext);
   const handleSignUp = useCallback(
     async (
       {
@@ -55,9 +57,8 @@ const SignUpScreen = ({ history }) => {
     } else if (password.length < 8) {
       errors.password = "Must be 8 characters long";
     }
-    if(!passwordConfirm)
-      errors.passwordConfirm = "Required";
-    else if(passwordConfirm !== password)
+    if (!passwordConfirm) errors.passwordConfirm = "Required";
+    else if (passwordConfirm !== password)
       errors.passwordConfirm = "Passwords do not match";
     return errors;
   }, []);
@@ -68,24 +69,24 @@ const SignUpScreen = ({ history }) => {
   });
 
   return (
-      <Container>
-        <SignUp>
-            <Header title="Sign Up Now!"></Header>
-            <Formik
-              initialValues={initialValues}
-              validate={validateForm}
-              onSubmit={handleSignUp}
-            >
-              {({ isSubmitting, errors }) => (
-                <SignUpForm
-                  isSubmitting={isSubmitting}
-                  errors={errors}
-                  formFields={formFields}
-                />
-              )}
-            </Formik>
-        </SignUp>
-      </Container>
+    <Container>
+      <SignUp>
+        <Header title="Sign Up Now!"></Header>
+        <Formik
+          initialValues={initialValues}
+          validate={validateForm}
+          onSubmit={handleSignUp}
+        >
+          {({ isSubmitting, errors }) => (
+            <SignUpForm
+              isSubmitting={isSubmitting}
+              errors={errors}
+              formFields={formFields}
+            />
+          )}
+        </Formik>
+      </SignUp>
+    </Container>
   );
 };
 
