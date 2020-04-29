@@ -9,7 +9,8 @@ export const signUpUser = async ({
   times,
   venmo,
   gender,
-  lookingFor
+  lookingFor,
+  session
 }) => {
   try {
     // authenticate user and create user ID
@@ -32,8 +33,8 @@ export const signUpUser = async ({
         venmo,
         gender,
         lookingFor,
-        registration_date: Date.now(),
-        session: "HG6WXFERbTuQRT7dtzyY"
+        session,
+        registration_date: Date.now()
       });
   } catch (error) {
     console.error("Encountered error signing up: " + error.message);

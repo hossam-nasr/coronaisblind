@@ -34,7 +34,8 @@ const SignUpScreen = ({ history }) => {
           times,
           venmo,
           gender,
-          lookingFor
+          lookingFor,
+          session: currentSession.id
         });
       } catch (err) {
         console.error("Error: ", err.message);
@@ -42,7 +43,7 @@ const SignUpScreen = ({ history }) => {
       setSubmitting(false);
       history.push("/");
     },
-    [history]
+    [history, currentSession]
   );
 
   const validateForm = useCallback(({ email, password, passwordConfirm }) => {

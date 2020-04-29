@@ -52,7 +52,7 @@ const ReviewForm = ({
         console.error("Error: ", error.message);
       }
     },
-    []
+    [callId, setReviewComplete, theReviewer, theReviewed]
   );
 
   return (
