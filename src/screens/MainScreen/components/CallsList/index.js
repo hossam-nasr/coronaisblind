@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SessionContext } from "../../../../Session";
 import CallRow from "./components/CallRow";
 import { Container, Title, CallsContainer } from "./styles";
 
 const CallsList = ({ callList }) => {
+  const { currentSession } = useContext(SessionContext);
   /* TODO: EDIT THIS WITH PROPER TIMESTAMP LOGIC ONCE WE IMPLEMENT TIMESTAMPS */
-  const upcomingCalls = callList.filter(call => call.time === "7:00pm EDT");
-  const pastCalls = callList.filter(call => call.time !== "7:00pm EDT");
-
+  const upcomingCalls = callList.filter(
+    call =>
+      call.session === currentSession.id &&
+      call.day === currentSession.activeDay
+  );
+  const pastCalls = callList.filter(
+    call =>
+      call.session !== currentSession.id || call.day < currentSession.activeDay
+  );
   return (
     <Container>
       <Title>Upcoming Calls</Title>

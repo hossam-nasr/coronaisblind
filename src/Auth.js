@@ -20,8 +20,10 @@ export const UserProvider = ({ children }) => {
         .doc(userAuth.uid)
         .onSnapshot(doc => {
           const userData = doc.data();
-          userData["id"] = userAuth.uid;
-          setCurrentUser(userData);
+          if (userData) {
+            userData["id"] = userAuth.uid;
+            setCurrentUser(userData);
+          }
         });
     }
   };
