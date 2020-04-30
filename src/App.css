@@ -1,6 +1,10 @@
 @font-face {
-  font-family: Gravity;
-  src: url("./assets/fonts/Gravity-Light.otf") format("opentype");
+  font-family: Gravity-Light;
+  src: url("./assets/fonts/Gravity-Light.otf") format("otf");  
+  font-family: Gravity-Regular;
+  src: url("./assets/fonts/Gravity-Regular.otf") format("otf");
+  font-family: Gravity-Bold;
+  src: url("./assets/fonts/Gravity-Bold.otf") format("otf");
 }
 
 html{
