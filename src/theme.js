@@ -14,7 +14,8 @@ const theme = {
     border: "#FFC107",
     transparentCard: "rgba(156, 136, 255, 0.2)",
     textTitle: "#F0C620",
-    textSubtitle: "#FFFFFF"
+    textSubtitle: "#FFFFFF",
+    white: "#FFFFFF",
   },
   fonts: {
     title: {
