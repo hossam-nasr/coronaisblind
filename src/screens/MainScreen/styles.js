@@ -11,6 +11,10 @@ export const Container = styled.div`
   background-repeat: no-repeat;
 `;
 
+export const Image = styled.img`
+  padding: 20px;
+`
+
 export const Title = styled.div`
   text-align: center;
   font-size: ${themeGet("fonts.title.size")};
