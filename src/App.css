@@ -1,21 +1,7 @@
-@font-face {
-  font-family: Gravity-Light;
-  src: url("./assets/fonts/Gravity-Light.otf") format("otf");  
-  font-family: Gravity-Regular;
-  src: url("./assets/fonts/Gravity-Regular.otf") format("otf");
-  font-family: Gravity-Bold;
-  src: url("./assets/fonts/Gravity-Bold.otf") format("otf");
-  font-family: Gravity-Book;
-  src: url("./assets/fonts/Gravity-Book.otf") format("otf");
-  font-family: Gravity-LightItalic;
-  src: url("./assets/fonts/Gravity-LightItalic.otf") format("otf");
-  font-family: Gravity-UltraLight;
-  src: url("./assets/fonts/Gravity-UltraLight.otf") format("otf");
-}
-
-html{
-  background: url('./assets/img/background.jpg');
+html {
+  background: url("./assets/img/background.jpg");
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .App {
@@ -55,4 +41,35 @@ html{
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: Gravity;
+  src: url("./assets/fonts/Gravity-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Gravity-Light;
+  src: url("./assets/fonts/Gravity-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Gravity-Bold;
+  src: url("./assets/fonts/Gravity-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Gravity-Book;
+  src: url("./assets/fonts/Gravity-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Gravity-LightItalic;
+  font-style: italic;
+  src: url("./assets/fonts/Gravity-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Gravity-UltraLight;
+  src: url("./assets/fonts/Gravity-UltraLight.otf") format("opentype");
 }
