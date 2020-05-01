@@ -3,6 +3,7 @@ import { themeGet } from "@styled-system/theme-get";
 
 export default styled.div`
   position: relative;
+  cursor: pointer;
   margin-top: 40px;
   color: ${themeGet("colors.white")};
   width: 40px;
