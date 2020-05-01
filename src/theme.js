@@ -5,7 +5,7 @@ const theme = {
     secondary: "#9c88ff",
     tertiary: "#f5f6fa",
     quaternary: "rgba(244, 127, 174, 0.35)",
-    gold: "#EDBF2B",
+    gold: "#F0C620",
     silver: "#E5DEFF",
     beige: "#E8CF8C",
     maroon: "#7E6E23",

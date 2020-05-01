@@ -4,6 +4,7 @@ import { getCallList } from "../../helpers";
 import CallsScreen from "./components/CallsScreen";
 import WelcomeScreen from "./components/WelcomeScreen";
 import { Container } from "./styles";
+import Banner from "../../components/Banner"
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
@@ -23,7 +24,10 @@ const MainScreen = () => {
   return (
     <Container>
       {currentUser ? (
-        <CallsScreen callList={callList} name={currentUser.firstName} />
+        <>
+          {currentUser.flake? (<Banner currentUser={currentUser.id}></Banner>) : (<></>)}
+          <CallsScreen callList={callList} name={currentUser.firstName} />
+        </>
       ) : (
         <WelcomeScreen />
       )}
