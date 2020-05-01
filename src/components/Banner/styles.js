@@ -6,16 +6,10 @@ export const Container = styled.div`
     width: 60%;
     background-color: ${themeGet("colors.gold")};
     margin: 10px;
+    cursor: pointer;
 `
 
 export const Text = styled.h5`
     text-align: center;
-    font-family: ${themeGet("fonts.gravity.light")}
-`
-
-export const Renew = styled.h4`
-    display: inline;
-    cursor: pointer;
-    text-decoration: underline;
     font-family: ${themeGet("fonts.gravity.light")}
 `
