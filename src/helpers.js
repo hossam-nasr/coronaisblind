@@ -132,8 +132,8 @@ export const resetFlake = async (uid) => {
     .firestore()
     .collection("users")
     .doc(uid)
-    .set({
+    .update({
       flake: false
-    }, { merge: true });
+    });
   return;
 }
