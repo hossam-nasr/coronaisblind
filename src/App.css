@@ -1,3 +1,18 @@
+@font-face {
+  font-family: Gravity-Light;
+  src: url("./assets/fonts/Gravity-Light.otf") format("otf");  
+  font-family: Gravity-Regular;
+  src: url("./assets/fonts/Gravity-Regular.otf") format("otf");
+  font-family: Gravity-Bold;
+  src: url("./assets/fonts/Gravity-Bold.otf") format("otf");
+  font-family: Gravity-Book;
+  src: url("./assets/fonts/Gravity-Book.otf") format("otf");
+  font-family: Gravity-LightItalic;
+  src: url("./assets/fonts/Gravity-LightItalic.otf") format("otf");
+  font-family: Gravity-UltraLight;
+  src: url("./assets/fonts/Gravity-UltraLight.otf") format("otf");
+}
+
 html{
   background: url('./assets/img/background.jpg');
   background-size: cover;

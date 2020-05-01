@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 
 export const Container = styled.div`
-  border: 1.5px solid white;
+  border: 1.5px solid ${themeGet("colors.white")};
   display: flex;
   flex-flow: column nowrap;
   padding: 20px 30px 20px 30px;
@@ -26,7 +26,7 @@ export const CallsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20vw;
+  width: 30vw;
   padding-left: 5vw;
   padding-right: 5vw;
 `;

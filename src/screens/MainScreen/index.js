@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../Auth.js";
 import { getCallList } from "../../helpers";
-import CallsList from "./components/CallsList";
-import { Container, Title, Subtitle, CallListContainer } from "./styles";
+import CallsScreen from "./components/CallsScreen";
+import WelcomeScreen from "./components/WelcomeScreen";
+import { Container } from "./styles";
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
 
   const [callList, setCallList] = useState([]);
+  const [testimonialState, setTestimonialState] = useState(null);
 
   useEffect(() => {
     const getCalls = async () => {
@@ -20,13 +22,10 @@ const MainScreen = () => {
 
   return (
     <Container>
-      {currentUser && <Title>{`Hey, ${currentUser.firstName}!`}</Title>}
-      <Subtitle>Welcome to Corona is Blind Season 3 Episode 2</Subtitle>
-      <Subtitle>This week on Corona is Blind...</Subtitle>
-      {currentUser && (
-        <CallListContainer>
-          <CallsList callList={callList} />
-        </CallListContainer>
+      {currentUser ? (
+        <CallsScreen callList={callList} name={currentUser.firstName} />
+      ) : (
+        <WelcomeScreen />
       )}
     </Container>
   );

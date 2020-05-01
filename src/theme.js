@@ -14,7 +14,8 @@ const theme = {
     border: "#FFC107",
     transparentCard: "rgba(156, 136, 255, 0.2)",
     textTitle: "#F0C620",
-    textSubtitle: "#FFFFFF"
+    textSubtitle: "#FFFFFF",
+    white: "#FFFFFF",
   },
   fonts: {
     title: {
@@ -36,6 +37,14 @@ const theme = {
       weight: 300,
       lineHeight: "40px",
       letterSpacing: "5px"
+    },
+    gravity: {
+      light: "Gravity-Light",
+      regular: "Gravity-Regular",
+      book: "Gravity-Book",
+      bold: "Gravity-Bold",
+      ultralight: "Gravity-UltraLight",
+      lightItalic: "Gravity-LightItalic",
     }
   }
 };
