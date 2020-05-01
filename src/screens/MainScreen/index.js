@@ -4,7 +4,7 @@ import { getCallList, resetFlake } from "../../helpers";
 import CallsScreen from "./components/CallsScreen";
 import WelcomeScreen from "./components/WelcomeScreen";
 import { Container } from "./styles";
-import Banner from "../../components/Banner"
+import Banner from "../../components/Banner";
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
@@ -23,14 +23,21 @@ const MainScreen = () => {
 
   const reset = () => {
     resetFlake(currentUser.id);
-    alert("Done! We're glad you're still interested!")
-  }
+    alert("Done! We're glad you're still interested!");
+  };
 
   return (
     <Container>
       {currentUser ? (
         <>
-          {currentUser.flake ? (<Banner onClick = {() => console.log("hh")} text="We've noticed you missed attending some of your calls. If you still wish to participate in this session of Corona is Blind, click on this banner."></Banner>) : (<></>)}
+          {currentUser.flake ? (
+            <Banner
+              onClick={() => reset()}
+              text="We've noticed you missed attending some of your calls. If you still wish to participate in this session of Corona is Blind, click on this banner."
+            ></Banner>
+          ) : (
+            <></>
+          )}
           <CallsScreen callList={callList} name={currentUser.firstName} />
         </>
       ) : (
