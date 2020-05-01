@@ -126,3 +126,14 @@ export const postCallReview = async ({
     theReviewer
   });
 };
+
+export const resetFlake = async (uid) => {
+  await app
+    .firestore()
+    .collection("users")
+    .doc(uid)
+    .update({
+      flake: false
+    });
+  return;
+}
