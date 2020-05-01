@@ -30,14 +30,12 @@ const MainScreen = () => {
     <Container>
       {currentUser ? (
         <>
-          {currentUser.flake ? (
+          {currentUser.flake &&
             <Banner
               onClick={() => reset()}
               text="We've noticed you missed attending some of your calls. If you still wish to participate in this session of Corona is Blind, click on this banner."
             ></Banner>
-          ) : (
-            <></>
-          )}
+          }
           <CallsScreen callList={callList} name={currentUser.firstName} />
         </>
       ) : (
