@@ -37,6 +37,14 @@ const theme = {
       weight: 300,
       lineHeight: "40px",
       letterSpacing: "5px"
+    },
+    gravity: {
+      light: "Gravity-Light",
+      regular: "Gravity-Regular",
+      book: "Gravity-Book",
+      bold: "Gravity-Bold",
+      ultralight: "Gravity-UltraLight",
+      lightItalic: "Gravity-LightItalic",
     }
   }
 };
