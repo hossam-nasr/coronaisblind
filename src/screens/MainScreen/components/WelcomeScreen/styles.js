@@ -2,27 +2,29 @@ import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 
 export const Image = styled.img`
-  padding: 20px;
-  height: 60%;
-  width: 60%;
+  width: 48%;
 `;
 
 export const Subtitle = styled.div`
   text-align: center;
   font-size: ${themeGet("fonts.subtitle.size")};
-  font-family: ${themeGet("fonts.gravity.light")};
+  font-family: ${themeGet("fonts.subtitle.family")};
   font-weight: ${themeGet("fonts.subtitle.weight")};
   line-height: ${themeGet("fonts.subtitle.lineHeight")};
   letter-spacing: ${themeGet("fonts.subtitle.letterSpacing")};
   color: ${themeGet("colors.textSubtitle")};
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 export const About = styled.div`
   text-align: center;
   color: ${themeGet("colors.white")};
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 30px;
+  font-family: ${themeGet("fonts.about")};
   width: 40%;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
 `;
 
 export const Title = styled.div`
