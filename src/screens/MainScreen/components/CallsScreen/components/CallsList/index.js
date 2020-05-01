@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SessionContext } from "../../../../../../Session";
 import CallRow from "./components/CallRow";
-import { Container, Title, CallsContainer } from "./styles";
+import { Container, Title, CallsContainer, PreviousTitle } from "./styles";
 
 const CallsList = ({ callList }) => {
   const { currentSession } = useContext(SessionContext);
@@ -30,7 +30,7 @@ const CallsList = ({ callList }) => {
           />
         ))}
       </CallsContainer>
-      <Title>Previous Calls</Title>
+      <PreviousTitle>Previous Calls</PreviousTitle>
       <CallsContainer>
         {pastCalls.map(({ id, time, name }) => (
           <CallRow key={id} time={time} name={name} id={id} past />

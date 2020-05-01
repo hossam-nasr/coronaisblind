@@ -14,14 +14,26 @@ export const Title = styled.div`
 
 export const Subtitle = styled.div`
   text-align: center;
-  font-size: ${themeGet("fonts.subtitle.size")};
-  font-family: ${themeGet("fonts.gravity.light")};
-  font-weight: ${themeGet("fonts.subtitle.weight")};
-  line-height: ${themeGet("fonts.subtitle.lineHeight")};
-  letter-spacing: ${themeGet("fonts.subtitle.letterSpacing")};
+  font-family: ${themeGet("fonts.gravity.regular")};
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 3px;
+  color: ${themeGet("colors.textSubtitle")};
+`;
+
+export const SubSubTitle = styled.div`
+  text-align: center;
+  margin-top: 10px;
+  font-family: ${themeGet("fonts.gravity.lightItalic")};
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 3px;
   color: ${themeGet("colors.textSubtitle")};
 `;
 
 export const CallListContainer = styled.div`
   margin-top: 30px;
+  margin-bottom: 50px;
 `;

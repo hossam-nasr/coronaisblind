@@ -8,14 +8,15 @@ export const Container = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: 2px;
 `;
 
 export const Text = styled.div`
-  font-family: ${themeGet("fonts.textNormal.family")};
-  font-weight: ${themeGet("fonts.textNormal.weight")};
-  line-height: ${themeGet("fonts.textNormal.lineHeight")};
+  font-family: ${themeGet("fonts.gravity.light")};
+  font-weight: 300;
+  line-height: 40px;
   letter-spacing: 2px;
-  font-size: 1em;
+  font-size: 22px;
   color: ${themeGet("colors.textSubtitle")};
 `;
 

@@ -8,3 +8,8 @@ export const Container = styled.div`
   align-self: center;
   margin: 20px;
 `;
+
+export const Text = styled.div`
+  font-size: 22px;
+  font-family: ${themeGet("fonts.primary")};
+`;

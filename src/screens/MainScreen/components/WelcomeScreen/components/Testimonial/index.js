@@ -1,11 +1,10 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, Text } from "./styles";
 
 const Testimonial = ({ name, text }) => {
-
   return (
     <Container>
-      {text}
+      <Text>{text}</Text>
     </Container>
   );
 };

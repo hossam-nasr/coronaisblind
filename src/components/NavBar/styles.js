@@ -33,13 +33,16 @@ export const NavItem = styled.span`
   margin: 2vh;
   font-size: 2vh;
   border-top: 1.5px solid ${themeGet("colors.border")};
+  font-family: ${themeGet("fonts.secondary")};
+  font-size: 22px;
   flex: 1;
 `;
 
 export const Logo = styled.div`
   list-style: none;
-  font-size: 3vh;
+  font-size: 3.5vh;
   color: ${themeGet("colors.tertiary")};
+  font-family: ${themeGet("fonts.logo")};
   margin: 2vh;
   flex: 2;
   display: flex;

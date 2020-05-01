@@ -24,11 +24,11 @@ const WelcomeScreen = () => {
       <Image src={logo} />
       <Subtitle>COLLEGE QUARANTINE EDITION</Subtitle>
       <About>
-        Corona is Blind: College Quarantine Edition is a 1-week event designed
-        to help college students meet one another while remaining at home during
-        the spread of COVID-19. Based on the popular TV series “Love is Blind,”
-        the experience consists of a series of phone and video calls between
-        college students from all over the nation.
+        <b>Corona is Blind: College Quarantine Edition</b> is a 1-week event
+        designed to help college students meet one another while remaining at
+        home during the spread of COVID-19. Based on the popular TV series “Love
+        is Blind,” the experience consists of a series of phone and video calls
+        between college students from all over the nation.
       </About>
       <Arrow onClick={_e => smoothSlide()}></Arrow>
       <img src={wave} />

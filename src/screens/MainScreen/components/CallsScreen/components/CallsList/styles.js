@@ -10,15 +10,19 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: ${themeGet("fonts.textNormal.family")};
-  font-weight: ${themeGet("fonts.textNormal.weight")};
-  line-height: ${themeGet("fonts.textNormal.lineHeight")};
-  letter-spacing: ${themeGet("fonts.textNormal.letterSpacing")};
-  font-size: 1.5em;
+  font-family: ${themeGet("fonts.gravity.light")};
+  line-height: 40px;
+  letter-spacing: 4px;
+  font-size: 40px;
+  font-weight: 300;
   color: ${themeGet("colors.textSubtitle")};
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   margin-top: 10px;
+`;
+
+export const PreviousTitle = styled(Title)`
+  margin-top: 40px;
 `;
 
 export const CallsContainer = styled.div`
