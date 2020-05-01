@@ -21,8 +21,8 @@ const MainScreen = () => {
     getCalls();
   }, [currentUser]);
 
-  const reset = () => {
-    resetFlake(currentUser.id);
+  const reset = async () => {
+    await resetFlake(currentUser.id);
     alert("Done! We're glad you're still interested!");
   };
 
