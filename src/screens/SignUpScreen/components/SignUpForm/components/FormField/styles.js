@@ -3,8 +3,9 @@ import { themeGet } from "@styled-system/theme-get";
 import { Field } from "formik";
 
 export const ErrorMessageText = styled.small`
-  font-size: 11px;
+  font-size: 14px;
   color: ${themeGet("colors.error")};
+  margin-top: 5px;
   display: block;
 `;
 

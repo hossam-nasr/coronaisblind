@@ -83,9 +83,10 @@ const formFields = [
   },
   {
     label: "Friend Referrals",
+    name: "friendEmails",
+    initialValue: "",
     note:
       "Do you know if any of your friends would be interested in this experience? If so, add their emails here!",
-    name: "friendEmails",
     type: "text"
   },
   {
@@ -94,11 +95,13 @@ const formFields = [
     note:
       "Missing calls is not fun for anyone. Please be considerate of others and try to make your calls on time!",
     name: "agree",
+    initialValue: "no",
     type: "checkbox",
     options: [
       {
         value: "yes",
-        label: "I agree"
+        label: "I agree",
+        required: true
       }
     ]
   }

@@ -5,40 +5,34 @@ export const signUpUser = async ({
   password,
   firstName,
   lastName,
-  quarantineLocation,
-  times,
   venmo,
   gender,
   lookingFor,
+  friendEmails,
   session
 }) => {
-  try {
-    // authenticate user and create user ID
-    const { user } = await app
-      .auth()
-      .createUserWithEmailAndPassword(email, password);
+  // authenticate user and create user ID
+  const { user } = await app
+    .auth()
+    .createUserWithEmailAndPassword(email, password);
 
-    // store user information in data store
-    await app
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .set({
-        id: user.uid,
-        email: user.email,
-        firstName,
-        lastName,
-        quarantineLocation,
-        times,
-        venmo,
-        gender,
-        lookingFor,
-        session,
-        registration_date: Date.now()
-      });
-  } catch (error) {
-    console.error("Encountered error signing up: " + error.message);
-  }
+  // store user information in data store
+  await app
+    .firestore()
+    .collection("users")
+    .doc(user.uid)
+    .set({
+      id: user.uid,
+      email: user.email,
+      firstName,
+      lastName,
+      venmo,
+      gender,
+      lookingFor,
+      friendEmails,
+      session,
+      registration_date: new Date()
+    });
 };
 
 export const getCallList = async user => {

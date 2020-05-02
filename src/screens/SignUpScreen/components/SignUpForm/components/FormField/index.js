@@ -22,13 +22,14 @@ const FormField = ({ label, name, type, note, options }) => (
     )}
     <ErrorMessage name={name} component={ErrorMessageText} />
     {options &&
-      options.map(({ label, value }) => (
+      options.map(({ label, value, required }) => (
         <Option
           key={value}
           type={type}
           name={name}
           label={label}
           value={value}
+          required={required}
         />
       ))}
   </Container>

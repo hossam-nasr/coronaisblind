@@ -10,7 +10,7 @@ const theme = {
     beige: "#E8CF8C",
     maroon: "#7E6E23",
     lightGold: "#B2AB99",
-    error: "#c40300",
+    error: "#FFA007",
     border: "#FFC107",
     transparentCard: "rgba(156, 136, 255, 0.2)",
     textTitle: "#F0C620",
