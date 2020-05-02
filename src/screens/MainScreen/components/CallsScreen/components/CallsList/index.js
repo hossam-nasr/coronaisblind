@@ -4,7 +4,7 @@ import CallRow from "./components/CallRow";
 import RevealRow from "./components/RevealRow";
 import { Container, Title, CallsContainer, PreviousTitle } from "./styles";
 
-const CallsList = ({ callList, revealList }) => {
+const CallRow = ({ callList, revealList }) => {
   const { currentSession } = useContext(SessionContext);
   /* TODO: EDIT THIS WITH PROPER TIMESTAMP LOGIC ONCE WE IMPLEMENT TIMESTAMPS */
   const upcomingCalls = callList.filter(
@@ -64,4 +64,4 @@ const CallsList = ({ callList, revealList }) => {
   );
 };
 
-export default CallsList;
+export default CallRow;
