@@ -12,7 +12,7 @@ export const ErrorMessageText = styled.small`
 export const Hakl = styled(Field)`
   display: flex;
   font-size: 18px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   display: block;
   flex: 1;
   border: none;

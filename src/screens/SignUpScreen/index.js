@@ -93,7 +93,6 @@ const SignUpScreen = ({ history }) => {
   });
 
   useEffect(() => {
-    console.log("Here , ", serverError);
     if (serverError) {
       window.scrollTo(0, 0);
     }
