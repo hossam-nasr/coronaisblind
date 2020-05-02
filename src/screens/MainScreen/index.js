@@ -13,12 +13,14 @@ const MainScreen = () => {
   const { currentSession, nextSession } = useContext(SessionContext);
 
   const [callList, setCallList] = useState([]);
+  const [revealList, setRevealList] = useState([]);
 
   useEffect(() => {
     const getCalls = async () => {
       setUserLoading(true);
-      const calls = await getCallList(currentUser);
+      const { calls, reveals } = await getCallList(currentUser);
       setCallList(calls);
+      setRevealList(reveals);
       setUserLoading(false);
     };
 
@@ -30,6 +32,11 @@ const MainScreen = () => {
   const reset = async () => {
     await resetFlake(currentUser.id);
     alert("Done! We're glad you're still interested!");
+  };
+
+  const joinNextSession = async () => {
+    await subscribeNextSession(currentUser.id, nextSession);
+    alert("You're now subscribed to the next session of Corona is Blind");
   };
 
   return (
