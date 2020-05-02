@@ -11,6 +11,7 @@ const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
   const { currentSession, nextSession } = useContext(SessionContext);
 
+  const [loadingState, setLoadingState] = useState(true);
   const [callList, setCallList] = useState([]);
   const [revealList, setRevealList] = useState([]);
 
@@ -35,6 +36,9 @@ const MainScreen = () => {
   };
   return (
     <Container>
+      {loadingState && (
+        <Banner onClick={() => console.log("g")} text="loading"></Banner>
+      )}
       {currentUser && currentSession ? (
         <>
           {currentUser.flake && (
