@@ -137,3 +137,14 @@ export const resetFlake = async (uid) => {
     });
   return;
 }
+
+export const subscribeNextSession = async (uid, nextSession) => {
+  await app
+    .firestore()
+    .collection("users")
+    .doc(uid)
+    .update({
+      session: nextSession
+    });
+    return;
+}

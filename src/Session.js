@@ -5,6 +5,7 @@ export const SessionContext = React.createContext();
 
 export const SessionProvider = ({ children }) => {
   const [currentSession, setCurrentSession] = useState(null);
+  const [nextSession, setNextSession] = useState(null);
 
   useEffect(() => {
     // hook
@@ -14,8 +15,13 @@ export const SessionProvider = ({ children }) => {
       .doc("sessionVars")
       .onSnapshot(doc => {
         const globalData = doc.data();
-        if (globalData && globalData.activeSession) {
-          setUpSessionListener(globalData.activeSession); // Gets updated from here
+        if (globalData) {
+          if (globalData.activeSession) {
+            setUpSessionListener(globalData.activeSession); // Gets updated from here
+          }
+          if (globalData.nextSession) {
+            setNextSession(globalData.nextSession);
+          }
         }
       });
   }, []);
@@ -32,7 +38,8 @@ export const SessionProvider = ({ children }) => {
           active,
           activeDay,
           startDate,
-          endDate
+          endDate,
+          done
         } = doc.data();
         setCurrentSession({
           id,
@@ -40,14 +47,15 @@ export const SessionProvider = ({ children }) => {
           active,
           activeDay,
           startDate,
-          endDate
+          endDate,
+          done
         });
       });
   };
 
   // Render children using current session data
   return (
-    <SessionContext.Provider value={{ currentSession }}>
+    <SessionContext.Provider value={{ currentSession, nextSession }}>
       {children}
     </SessionContext.Provider>
   );
