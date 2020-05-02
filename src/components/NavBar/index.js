@@ -13,9 +13,9 @@ const NavBar = () => {
         <NavItem>
           <Rabet to="/">Home</Rabet>
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <Rabet to="/about">About</Rabet>
-        </NavItem>
+        </NavItem> */}
       </LeftSec>
       <Logo>
         <Rabet to="/">Corona is Blind</Rabet>
