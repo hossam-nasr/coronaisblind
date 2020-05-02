@@ -6,17 +6,21 @@ import ReviewForm from "./components/ReviewForm";
 import ErrorMessage from "./components/ErrorMessage";
 import ReviewComplete from "./components/ReviewComplete";
 import { Container } from "./styles";
+import Loading from "../../components/Loading";
 
 const ReviewScreen = () => {
   const { callId } = useParams();
   const { currentUser } = useContext(UserContext);
   const [call, setCall] = useState(null);
   const [reviewComplete, setReviewComplete] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCall = async () => {
       if (callId && callId !== "" && currentUser && currentUser.id) {
+        setLoading(true);
         setCall(await getCallObj(callId, currentUser.id));
+        setLoading(false);
       }
     };
     getCall();
@@ -35,7 +39,9 @@ const ReviewScreen = () => {
 
   return (
     <Container>
-      {reviewComplete ? (
+      {loading ? (
+        <Loading />
+      ) : reviewComplete ? (
         <ReviewComplete />
       ) : call ? (
         <ReviewForm

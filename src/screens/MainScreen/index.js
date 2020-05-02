@@ -6,9 +6,10 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import { Container } from "./styles";
 import Banner from "../../components/Banner";
 import { SessionContext } from "../../Session";
+import Loading from "../../components/Loading";
 
 const MainScreen = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, userLoading, setUserLoading } = useContext(UserContext);
   const { currentSession, nextSession } = useContext(SessionContext);
 
   const [callList, setCallList] = useState([]);
@@ -16,26 +17,33 @@ const MainScreen = () => {
 
   useEffect(() => {
     const getCalls = async () => {
+      setUserLoading(true);
       const { calls, reveals } = await getCallList(currentUser);
       setCallList(calls);
       setRevealList(reveals);
+      setUserLoading(false);
     };
 
-    getCalls();
+    if (currentUser) {
+      getCalls();
+    }
   }, [currentUser]);
+
+  const reset = async () => {
+    await resetFlake(currentUser.id);
+    alert("Done! We're glad you're still interested!");
+  };
 
   const joinNextSession = async () => {
     await subscribeNextSession(currentUser.id, nextSession);
     alert("You're now subscribed to the next session of Corona is Blind");
   };
 
-  const reset = async () => {
-    await resetFlake(currentUser.id);
-    alert("Done! We're glad you're still interested!");
-  };
   return (
     <Container>
-      {currentUser && currentSession ? (
+      {userLoading ? (
+        <Loading />
+      ) : currentUser && currentSession ? (
         <>
           {currentUser.flake && (
             <Banner

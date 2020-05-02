@@ -18,7 +18,7 @@ const CallsList = ({ callList, revealList }) => {
   );
   return (
     <Container>
-      {revealList.length > 0 && (
+      {revealList && revealList.length > 0 && (
         <>
           <Title>Reveals!</Title>
           <CallsContainer>
@@ -33,7 +33,7 @@ const CallsList = ({ callList, revealList }) => {
           </CallsContainer>
         </>
       )}
-      {upcomingCalls.length > 0 && (
+      {upcomingCalls && upcomingCalls.length > 0 && (
         <>
           <Title>Upcoming Calls</Title>
           <CallsContainer>
@@ -50,7 +50,7 @@ const CallsList = ({ callList, revealList }) => {
           </CallsContainer>
         </>
       )}
-      {pastCalls.length > 0 && (
+      {pastCalls && pastCalls.length > 0 && (
         <>
           <PreviousTitle>Previous Calls</PreviousTitle>
           <CallsContainer>

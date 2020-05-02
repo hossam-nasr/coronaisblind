@@ -37,7 +37,6 @@ export const Button = styled.div`
 
 export const StyledLink = styled.a`
   text-decoration: none;
-
   &:focus,
   &:hover,
   &:visited,
