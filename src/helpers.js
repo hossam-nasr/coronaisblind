@@ -115,10 +115,10 @@ export const postCallReview = async ({
     .collection("callReviews")
     .doc();
 
-  const reviewId = docRef.id;
+  const id = docRef.id;
 
   return await docRef.set({
-    reviewId,
+    id,
     callId,
     review,
     showedUp,
@@ -127,7 +127,7 @@ export const postCallReview = async ({
   });
 };
 
-export const resetFlake = async (uid) => {
+export const resetFlake = async uid => {
   await app
     .firestore()
     .collection("users")
@@ -136,7 +136,7 @@ export const resetFlake = async (uid) => {
       flake: false
     });
   return;
-}
+};
 
 export const subscribeNextSession = async (uid, nextSession) => {
   await app
@@ -146,5 +146,5 @@ export const subscribeNextSession = async (uid, nextSession) => {
     .update({
       session: nextSession
     });
-    return;
-}
+  return;
+};
