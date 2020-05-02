@@ -10,9 +10,9 @@ import Loading from "../../components/Loading";
 
 const MainScreen = () => {
   const { currentUser, userLoading, setUserLoading } = useContext(UserContext);
+  const { currentSession, nextSession } = useContext(SessionContext);
 
   const [callList, setCallList] = useState([]);
-  const [testimonialState, setTestimonialState] = useState(null);
 
   useEffect(() => {
     const getCalls = async () => {
@@ -36,7 +36,7 @@ const MainScreen = () => {
     <Container>
       {userLoading ? (
         <Loading />
-      ) : currentUser ? (
+      ) : currentUser && currentSession ? (
         <>
           {currentUser.flake && (
             <Banner
