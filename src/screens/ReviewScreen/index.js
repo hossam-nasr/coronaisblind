@@ -13,12 +13,14 @@ const ReviewScreen = () => {
   const { currentUser } = useContext(UserContext);
   const [call, setCall] = useState(null);
   const [reviewComplete, setReviewComplete] = useState(false);
-  const [loadingState, setLoadingState] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCall = async () => {
       if (callId && callId !== "" && currentUser && currentUser.id) {
+        setLoading(true);
         setCall(await getCallObj(callId, currentUser.id));
+        setLoading(false);
       }
     };
     getCall();
@@ -35,15 +37,11 @@ const ReviewScreen = () => {
     }
   }, [call, currentUser]);
 
-  useEffect(() => {
-    if (currentUser) setTimeout(() => { setLoadingState(false) }, 500);
-    else setLoadingState(true);
-  }, [currentUser]);
-
   return (
     <Container>
-      {loadingState && <Loading></Loading>}
-      {reviewComplete ? (
+      {loading ? (
+        <Loading />
+      ) : reviewComplete ? (
         <ReviewComplete />
       ) : call ? (
         <ReviewForm
@@ -57,8 +55,8 @@ const ReviewScreen = () => {
           theReviewed={call.otherCallerId}
         />
       ) : (
-            <ErrorMessage />
-          )}
+        <ErrorMessage />
+      )}
     </Container>
   );
 };
