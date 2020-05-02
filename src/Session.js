@@ -6,6 +6,7 @@ export const SessionContext = React.createContext();
 export const SessionProvider = ({ children }) => {
   const [currentSession, setCurrentSession] = useState(null);
   const [nextSession, setNextSession] = useState(null);
+  const [sessionLoading, setSessionLoading] = useState(true);
 
   useEffect(() => {
     // hook
@@ -50,12 +51,15 @@ export const SessionProvider = ({ children }) => {
           endDate,
           done
         });
+        setSessionLoading(false);
       });
   };
 
   // Render children using current session data
   return (
-    <SessionContext.Provider value={{ currentSession, nextSession }}>
+    <SessionContext.Provider
+      value={{ currentSession, nextSession, sessionLoading, setSessionLoading }}
+    >
       {children}
     </SessionContext.Provider>
   );

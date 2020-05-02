@@ -1,6 +1,6 @@
 import React from "react";
-import FormField from "./components/FormField";
-import { Estemara, Button } from "./styles"
+import FormField from "../../../../components/FormField";
+import { Estemara, Button } from "./styles";
 
 const SignUpForm = ({ isSubmitting, errors, formFields }) => (
   <Estemara>
@@ -14,10 +14,7 @@ const SignUpForm = ({ isSubmitting, errors, formFields }) => (
         options={options}
       />
     ))}
-    <Button
-      type="submit"
-      disabled={isSubmitting || Object.keys(errors).length}
-    >
+    <Button type="submit" disabled={isSubmitting || Object.keys(errors).length}>
       Sign Up
     </Button>
   </Estemara>

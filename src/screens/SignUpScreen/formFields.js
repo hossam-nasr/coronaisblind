@@ -32,37 +32,6 @@ const formFields = [
     type: "password"
   },
   {
-    label:
-      "If you could be quarantined anywhere in the world, where would it be?",
-    initialValue: "",
-    name: "quarantineLocation",
-    type: "text"
-  },
-  {
-    label: "Select all EDT (East Coast) times that work for you",
-    initialValue: [],
-    note: "We will try to schedule the calls for the same time every day",
-    name: "times",
-    type: "checkbox",
-    options: [
-      { value: "11am", label: "11am" },
-      { value: "12pm", label: "Noon" },
-      { value: "1pm", label: "1pm" },
-      { value: "2pm", label: "2pm" },
-      { value: "3pm", label: "3pm" },
-      { value: "4pm", label: "4pm" },
-      { value: "5pm", label: "5pm" },
-      { value: "6pm", label: "6pm" },
-      { value: "7pm", label: "7pm" },
-      { value: "8pm", label: "8pm" },
-      { value: "9pm", label: "9pm" },
-      { value: "10pm", label: "10pm" },
-      { value: "11pm", label: "11pm" },
-      { value: "12am", label: "Midnight" },
-      { value: "1am", label: "1am" }
-    ]
-  },
-  {
     label: "Your Venmo",
     initialValue: "",
     name: "venmo",
@@ -92,6 +61,8 @@ const formFields = [
   },
   {
     label: "I am interested in people who are...",
+    note:
+      "This experience does not have to be romantic. Feel free to select all genders if you want to meet people for friends. ",
     initialValue: [],
     name: "lookingFor",
     type: "checkbox",
@@ -107,6 +78,30 @@ const formFields = [
       {
         value: "other",
         label: "Other"
+      }
+    ]
+  },
+  {
+    label: "Friend Referrals",
+    name: "friendEmails",
+    initialValue: "",
+    note:
+      "Do you know if any of your friends would be interested in this experience? If so, add their emails here!",
+    type: "text"
+  },
+  {
+    label:
+      "All calls this week are going to be between 10-11PM Eastern. By checking this box, I'm agreeing to this time and will do my best to attend all my calls.",
+    note:
+      "Missing calls is not fun for anyone. Please be considerate of others and try to make your calls on time!",
+    name: "agree",
+    initialValue: "no",
+    type: "checkbox",
+    options: [
+      {
+        value: "yes",
+        label: "I agree",
+        required: true
       }
     ]
   }

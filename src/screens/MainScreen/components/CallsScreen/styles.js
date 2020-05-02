@@ -37,3 +37,10 @@ export const CallListContainer = styled.div`
   margin-top: 30px;
   margin-bottom: 50px;
 `;
+
+export const MidContainer = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+`;

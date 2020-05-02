@@ -16,5 +16,13 @@ export const SignUp = styled.div`
   max-width: 30%;
   border-radius: 2vh;
   color: ${themeGet("colors.tertiary")};
-  background: ${themeGet("colors.transparentCard")}
+  background: ${themeGet("colors.transparentCard")};
+`;
+
+export const ErrorMessage = styled.div`
+  color: ${themeGet("colors.error")};
+  font-family: ${themeGet("fonts.gravity.regular")};
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
 `;
