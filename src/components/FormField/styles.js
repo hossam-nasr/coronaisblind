@@ -10,10 +10,11 @@ export const ErrorMessageText = styled.small`
 `;
 
 export const Hakl = styled(Field)`
+  display: flex;
   font-size: 18px;
   padding: 10px 20px 10px 20px;
   display: block;
-  width: 100%;
+  flex: 1;
   border: none;
   background-color: ${themeGet("colors.tertiary")};
   border-radius: 5vh;
@@ -31,6 +32,8 @@ export const Title = styled.div`
 `;
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   font-family: ${themeGet("fonts.gravity.regular")};
   margin-bottom: 20px;
 `;
