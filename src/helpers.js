@@ -127,10 +127,10 @@ export const postCallReview = async ({
     .collection("callReviews")
     .doc();
 
-  const reviewId = docRef.id;
+  const id = docRef.id;
 
   return await docRef.set({
-    reviewId,
+    id,
     callId,
     review,
     showedUp,
