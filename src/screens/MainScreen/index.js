@@ -10,7 +10,9 @@ import Loading from "../../components/Loading";
 
 const MainScreen = () => {
   const { currentUser, userLoading, setUserLoading } = useContext(UserContext);
-  const { currentSession, nextSession } = useContext(SessionContext);
+  const { currentSession, nextSession, sessionLoading } = useContext(
+    SessionContext
+  );
 
   const [callList, setCallList] = useState([]);
   const [revealList, setRevealList] = useState([]);
@@ -41,7 +43,7 @@ const MainScreen = () => {
 
   return (
     <Container>
-      {userLoading ? (
+      {userLoading || sessionLoading ? (
         <Loading />
       ) : currentUser && currentSession ? (
         <>
