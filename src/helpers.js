@@ -156,7 +156,8 @@ export const subscribeNextSession = async (uid, nextSession) => {
     .collection("users")
     .doc(uid)
     .update({
-      session: nextSession
+      session: nextSession,
+      flake: false
     });
   return;
 };
