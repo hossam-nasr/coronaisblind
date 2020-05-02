@@ -12,11 +12,13 @@ const MainScreen = () => {
   const { currentSession, nextSession } = useContext(SessionContext);
 
   const [callList, setCallList] = useState([]);
+  const [revealList, setRevealList] = useState([]);
 
   useEffect(() => {
     const getCalls = async () => {
-      const calls = await getCallList(currentUser);
+      const { calls, reveals } = await getCallList(currentUser);
       setCallList(calls);
+      setRevealList(reveals);
     };
 
     getCalls();
@@ -24,36 +26,42 @@ const MainScreen = () => {
 
   const joinNextSession = async () => {
     await subscribeNextSession(currentUser.id, nextSession);
-    alert("You're now subscribed to the next session of Corona is Blind")
-  }
+    alert("You're now subscribed to the next session of Corona is Blind");
+  };
 
   const reset = async () => {
     await resetFlake(currentUser.id);
     alert("Done! We're glad you're still interested!");
   };
-
   return (
     <Container>
       {currentUser && currentSession ? (
         <>
-          {currentUser.flake &&
+          {currentUser.flake && (
             <Banner
               onClick={() => reset()}
               text="We've noticed you missed attending some of your calls. If you still wish to participate in this session of Corona is Blind, click on this banner."
             ></Banner>
-          }
-          {
-            currentSession.done && currentUser.session !== nextSession &&
+          )}
+          {currentSession.done && currentUser.session !== nextSession && (
             <Banner
               onClick={() => joinNextSession()}
-              text={`The current session ends on ${new Date(currentSession.endDate).toLocaleDateString("en-US")}. If you wish to participate in the next session, click on this banner.`}
+              text={`The current session ends on ${new Date(
+                currentSession.endDate
+              ).toLocaleDateString(
+                "en-US"
+              )}. If you wish to participate in the next session, click on this banner.`}
             ></Banner>
-          }
-          <CallsScreen callList={callList} name={currentUser.firstName} />
+          )}
+          <CallsScreen
+            callList={callList}
+            name={currentUser.firstName}
+            revealList={revealList}
+          />
         </>
       ) : (
-          <WelcomeScreen />
-        )}
+        <WelcomeScreen />
+      )}
     </Container>
   );
 };
