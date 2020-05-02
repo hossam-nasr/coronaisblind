@@ -6,6 +6,7 @@ import WelcomeScreen from "./components/WelcomeScreen";
 import { Container } from "./styles";
 import Banner from "../../components/Banner";
 import { SessionContext } from "../../Session";
+import Loading from "../../components/Loading";
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
@@ -31,11 +32,11 @@ const MainScreen = () => {
   };
 
   useEffect(() => {
-    if (currentUser) {
-      setLoadingState(false);
-    } else {
-      setLoadingState(true);
-    }
+    if (currentUser && callList)
+      setTimeout(() => {
+        setLoadingState(false);
+      }, 500);
+    else setLoadingState(true);
   }, [currentUser]);
 
   const reset = async () => {
@@ -45,9 +46,7 @@ const MainScreen = () => {
 
   return (
     <Container>
-      {loadingState && (
-        <Banner onClick={() => console.log("g")} text="loading"></Banner>
-      )}
+      {loadingState && <Loading></Loading>}
       {currentUser && currentSession ? (
         <>
           {currentUser.flake && (
