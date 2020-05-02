@@ -30,10 +30,19 @@ const MainScreen = () => {
     alert("You're now subscribed to the next session of Corona is Blind");
   };
 
+  useEffect(() => {
+    if (currentUser) {
+      setLoadingState(false);
+    } else {
+      setLoadingState(true);
+    }
+  }, [currentUser]);
+
   const reset = async () => {
     await resetFlake(currentUser.id);
     alert("Done! We're glad you're still interested!");
   };
+
   return (
     <Container>
       {loadingState && (
