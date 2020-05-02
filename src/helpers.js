@@ -44,17 +44,25 @@ export const signUpUser = async ({
 export const getCallList = async user => {
   if (user && user.id && user.calls) {
     try {
-      const calls = await Promise.all(
+      const calls = [];
+      const reveals = [];
+      await Promise.all(
         user.calls.map(async callId => {
-          return await getCallObj(callId, user.id);
+          const call = await getCallObj(callId, user.id);
+          if (call) {
+            calls.push(call);
+            if (call.reveal) {
+              reveals.push(call);
+            }
+          }
         })
       );
-      return calls.filter(call => !!call);
+      return { calls, reveals };
     } catch (err) {
       console.error("Encountered error getting calls: ", err.message);
     }
   }
-  return [];
+  return { calls: [], reveals: [] };
 };
 
 export const getCallObj = async (callId, userId) => {
@@ -100,6 +108,10 @@ export const getCallObj = async (callId, userId) => {
   const callerData = callerDoc.data();
   callData.name = callerData.firstName;
   callData.otherCallerId = callerId;
+  if (callData.reveal) {
+    callData.lastName = callerData.lastName;
+    callData.email = callerData.email;
+  }
   return callData;
 };
 
@@ -127,7 +139,7 @@ export const postCallReview = async ({
   });
 };
 
-export const resetFlake = async (uid) => {
+export const resetFlake = async uid => {
   await app
     .firestore()
     .collection("users")
@@ -136,7 +148,7 @@ export const resetFlake = async (uid) => {
       flake: false
     });
   return;
-}
+};
 
 export const subscribeNextSession = async (uid, nextSession) => {
   await app
@@ -146,5 +158,5 @@ export const subscribeNextSession = async (uid, nextSession) => {
     .update({
       session: nextSession
     });
-    return;
-}
+  return;
+};

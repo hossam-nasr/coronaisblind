@@ -7,7 +7,7 @@ import {
   StyledRouterLink
 } from "./styles";
 
-const CallsList = ({ id, past, name, time, url }) => (
+const CallRow = ({ id, past, name, time, url }) => (
   <Container>
     <Text>{time}</Text>
     <Text>{name}</Text>
@@ -23,4 +23,4 @@ const CallsList = ({ id, past, name, time, url }) => (
   </Container>
 );
 
-export default CallsList;
+export default CallRow;
