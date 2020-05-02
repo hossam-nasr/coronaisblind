@@ -1,23 +1,25 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { withRouter, Redirect } from "react-router";
 import { UserContext } from "../../Auth.js";
 import app from "../../firebase";
 import LoginForm from "./components/LoginForm";
 import formFields from "./formFields";
 import { Formik } from "formik";
-import { Login, Container } from "./styles";
+import { Login, Container, ErrorMessage } from "./styles";
 import { Header } from "../../components/Header";
 
 const LoginScreen = ({ history }) => {
   const { currentUser } = useContext(UserContext);
+  const [serverError, setServerError] = useState(null);
 
   const handleLogin = useCallback(
     async ({ email, password }, { setSubmitting }) => {
       try {
         await app.auth().signInWithEmailAndPassword(email, password);
         setSubmitting(false);
-        history.push("/");
       } catch (error) {
+        window.scrollTo(0, 0);
+        setServerError(error.message);
         console.error("Error: ", error.message);
       }
     },
@@ -49,6 +51,7 @@ const LoginScreen = ({ history }) => {
     <Container>
       <Login>
         <Header title="Login!" />
+        {serverError && <ErrorMessage>Error: {serverError}</ErrorMessage>}
         <Formik
           initialValues={initialValues}
           validate={validateForm}
