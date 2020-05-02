@@ -10,26 +10,27 @@ import Loading from "../../components/Loading";
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
-  const { currentSession, nextSession } = useContext(SessionContext);
 
   const [loadingState, setLoadingState] = useState(true);
   const [callList, setCallList] = useState([]);
-  const [revealList, setRevealList] = useState([]);
+  const [testimonialState, setTestimonialState] = useState(null);
 
   useEffect(() => {
     const getCalls = async () => {
-      const { calls, reveals } = await getCallList(currentUser);
+      const calls = await getCallList(currentUser);
       setCallList(calls);
-      setRevealList(reveals);
     };
 
     getCalls();
   }, [currentUser]);
 
-  const joinNextSession = async () => {
-    await subscribeNextSession(currentUser.id, nextSession);
-    alert("You're now subscribed to the next session of Corona is Blind");
-  };
+  useEffect(() => {
+    if (currentUser && callList)
+      setTimeout(() => {
+        setLoadingState(false);
+      }, 500);
+    else setLoadingState(true);
+  }, [currentUser]);
 
   useEffect(() => {
     if (currentUser && callList)
@@ -47,7 +48,7 @@ const MainScreen = () => {
   return (
     <Container>
       {loadingState && <Loading></Loading>}
-      {currentUser && currentSession ? (
+      {currentUser ? (
         <>
           {currentUser.flake && (
             <Banner
