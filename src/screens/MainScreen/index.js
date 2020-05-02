@@ -64,6 +64,8 @@ const MainScreen = () => {
           <CallsScreen
             callList={callList}
             name={currentUser.firstName}
+            sessionNum={currentSession.number}
+            dayNum={currentSession.activeDay}
             revealList={revealList}
           />
         </>

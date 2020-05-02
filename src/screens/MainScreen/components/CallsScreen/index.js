@@ -8,10 +8,12 @@ import {
   MidContainer
 } from "./styles";
 
-const CallsScreen = ({ callList, revealList, name }) => (
+const CallsScreen = ({ callList, revealList, name, sessionNum, dayNum }) => (
   <>
     <Title>{`Hey, ${name}!`}</Title>
-    <Subtitle>Welcome to Corona is Blind Season 3 Episode 2</Subtitle>
+    <Subtitle>
+      Welcome to Corona is Blind Season {sessionNum} Episode {dayNum}
+    </Subtitle>
     <SubSubTitle>This week on Corona is Blind...</SubSubTitle>
     {callList && callList.length > 0 ? (
       <CallListContainer>
