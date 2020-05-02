@@ -9,8 +9,7 @@ import { SessionContext } from "../../Session";
 
 const MainScreen = () => {
   const { currentUser } = useContext(UserContext);
-  const { currentSession } = useContext(SessionContext);
-  const { nextSession } = useContext(SessionContext);
+  const { currentSession, nextSession } = useContext(SessionContext);
 
   const [callList, setCallList] = useState([]);
 

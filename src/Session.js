@@ -15,9 +15,13 @@ export const SessionProvider = ({ children }) => {
       .doc("sessionVars")
       .onSnapshot(doc => {
         const globalData = doc.data();
-        if (globalData && globalData.activeSession) {
-          setUpSessionListener(globalData.activeSession); // Gets updated from here
-          setNextSession(globalData.nextSession);
+        if (globalData) {
+          if (globalData.activeSession) {
+            setUpSessionListener(globalData.activeSession); // Gets updated from here
+          }
+          if (globalData.nextSession) {
+            setNextSession(globalData.nextSession);
+          }
         }
       });
   }, []);
