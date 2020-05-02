@@ -9,35 +9,22 @@ import { SessionContext } from "../../Session";
 import Loading from "../../components/Loading";
 
 const MainScreen = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, userLoading, setUserLoading } = useContext(UserContext);
 
-  const [loadingState, setLoadingState] = useState(true);
   const [callList, setCallList] = useState([]);
   const [testimonialState, setTestimonialState] = useState(null);
 
   useEffect(() => {
     const getCalls = async () => {
+      setUserLoading(true);
       const calls = await getCallList(currentUser);
       setCallList(calls);
+      setUserLoading(false);
     };
 
-    getCalls();
-  }, [currentUser]);
-
-  useEffect(() => {
-    if (currentUser && callList)
-      setTimeout(() => {
-        setLoadingState(false);
-      }, 500);
-    else setLoadingState(true);
-  }, [currentUser]);
-
-  useEffect(() => {
-    if (currentUser && callList)
-      setTimeout(() => {
-        setLoadingState(false);
-      }, 500);
-    else setLoadingState(true);
+    if (currentUser) {
+      getCalls();
+    }
   }, [currentUser]);
 
   const reset = async () => {
@@ -47,8 +34,9 @@ const MainScreen = () => {
 
   return (
     <Container>
-      {loadingState && <Loading></Loading>}
-      {currentUser ? (
+      {userLoading ? (
+        <Loading />
+      ) : currentUser ? (
         <>
           {currentUser.flake && (
             <Banner

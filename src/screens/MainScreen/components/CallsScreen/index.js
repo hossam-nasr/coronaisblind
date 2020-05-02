@@ -9,7 +9,7 @@ const CallsScreen = ({ callList, name }) => (
     <SubSubTitle>This week on Corona is Blind...</SubSubTitle>
     <CallListContainer>
       <CallsList callList={callList} />
-    </CallListContainer>{" "}
+    </CallListContainer>
   </>
 );
 

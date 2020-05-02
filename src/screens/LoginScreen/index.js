@@ -9,6 +9,8 @@ import { Login, Container } from "./styles";
 import { Header } from "../../components/Header";
 
 const LoginScreen = ({ history }) => {
+  const { currentUser } = useContext(UserContext);
+
   const handleLogin = useCallback(
     async ({ email, password }, { setSubmitting }) => {
       try {
@@ -37,8 +39,6 @@ const LoginScreen = ({ history }) => {
   formFields.map(({ name, initialValue }) => {
     initialValues[name] = initialValue;
   });
-
-  const { currentUser } = useContext(UserContext);
 
   if (currentUser) {
     console.log("Already Logged In");

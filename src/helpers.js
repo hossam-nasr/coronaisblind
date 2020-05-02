@@ -127,7 +127,7 @@ export const postCallReview = async ({
   });
 };
 
-export const resetFlake = async (uid) => {
+export const resetFlake = async uid => {
   await app
     .firestore()
     .collection("users")
@@ -136,4 +136,4 @@ export const resetFlake = async (uid) => {
       flake: false
     });
   return;
-}
+};

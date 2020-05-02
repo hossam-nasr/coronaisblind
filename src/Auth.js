@@ -6,6 +6,7 @@ export const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
   // Collection to monitor authentication status and current user
   const [currentUser, setCurrentUser] = useState(null);
+  const [userLoading, setUserLoading] = useState(true);
 
   useEffect(() => {
     // hook
@@ -14,6 +15,7 @@ export const UserProvider = ({ children }) => {
 
   const setUpUserListener = userAuth => {
     if (userAuth) {
+      setUserLoading(true);
       app
         .firestore()
         .collection("users")
@@ -23,14 +25,17 @@ export const UserProvider = ({ children }) => {
           if (userData) {
             userData["id"] = userAuth.uid;
             setCurrentUser(userData);
+            setUserLoading(false);
           }
         });
+    } else {
+      setUserLoading(false);
     }
   };
 
   // Render user profile returned from firebase
   return (
-    <UserContext.Provider value={{ currentUser }}>
+    <UserContext.Provider value={{ currentUser, userLoading, setUserLoading }}>
       {children}
     </UserContext.Provider>
   );
