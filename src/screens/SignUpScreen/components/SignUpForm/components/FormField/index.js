@@ -1,16 +1,26 @@
 import React from "react";
 import Option from "./components/Option";
-import { ErrorMessageText, Hakl } from "./styles";
+import {
+  ErrorMessageText,
+  Hakl,
+  Title,
+  TitleContainer,
+  Container,
+  Note
+} from "./styles";
 import { ErrorMessage } from "formik";
 
 const FormField = ({ label, name, type, note, options }) => (
-  <div>
-    <h4>{label}</h4>
+  <Container>
+    <TitleContainer>
+      <Title>{label}</Title>
+      {note && <Note>{note}</Note>}
+    </TitleContainer>
+
     {type !== "checkbox" && type !== "radio" && (
       <Hakl name={name} type={type} required />
     )}
     <ErrorMessage name={name} component={ErrorMessageText} />
-    {note && <small>{note}</small>}
     {options &&
       options.map(({ label, value }) => (
         <Option
@@ -21,7 +31,7 @@ const FormField = ({ label, name, type, note, options }) => (
           value={value}
         />
       ))}
-  </div>
+  </Container>
 );
 
 export default FormField;

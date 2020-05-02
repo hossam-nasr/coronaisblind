@@ -87,6 +87,20 @@ const formFields = [
       "Do you know if any of your friends would be interested in this experience? If so, add their emails here!",
     name: "friendEmails",
     type: "text"
+  },
+  {
+    label:
+      "All calls this week are going to be between 10-11PM Eastern. By checking this box, I'm agreeing to this time and will do my best to attend all my calls.",
+    note:
+      "Missing calls is not fun for anyone. Please be considerate of others and try to make your calls on time!",
+    name: "agree",
+    type: "checkbox",
+    options: [
+      {
+        value: "yes",
+        label: "I agree"
+      }
+    ]
   }
 ];
 
