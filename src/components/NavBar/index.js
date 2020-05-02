@@ -33,7 +33,9 @@ const NavBar = () => {
         )}
         {currentUser && (
           <NavItem>
-            <Rabet onClick={() => app.auth().signOut()} to="/">Sign Out</Rabet>
+            <Rabet onClick={() => app.auth().signOut()} to="/">
+              Sign Out
+            </Rabet>
           </NavItem>
         )}
       </RightSec>
