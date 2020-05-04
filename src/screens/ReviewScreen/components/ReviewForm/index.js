@@ -12,6 +12,7 @@ import {
   ButtonContainer
 } from "./styles";
 import { postCallReview } from "../../../../helpers";
+import ReactGA from 'react-ga';
 
 const ReviewForm = ({
   name,
@@ -47,6 +48,10 @@ const ReviewForm = ({
           showedUp: showedUpBool
         });
         setSubmitting(false);
+        ReactGA.event({
+          category: "Button",
+          action: "Review"
+        });
         setReviewComplete();
       } catch (error) {
         console.error("Error: ", error.message);
