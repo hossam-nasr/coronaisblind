@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainScreen from "./screens/MainScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -11,8 +11,15 @@ import NavBar from "./components/NavBar";
 import { UserProvider } from "./Auth";
 import RootContainer from "./components/RootContainer";
 import { SessionProvider } from "./Session";
+import ReactGA from 'react-ga';
 
 function App() {
+
+  useEffect(() => {
+    ReactGA.initialize('UA-165437579-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <SessionProvider>

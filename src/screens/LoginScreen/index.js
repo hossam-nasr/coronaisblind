@@ -7,6 +7,7 @@ import formFields from "./formFields";
 import { Formik } from "formik";
 import { Login, Container, ErrorMessage } from "./styles";
 import { Header } from "../../components/Header";
+import ReactGA from 'react-ga';
 
 const LoginScreen = ({ history }) => {
   const { currentUser } = useContext(UserContext);
@@ -17,6 +18,10 @@ const LoginScreen = ({ history }) => {
       try {
         await app.auth().signInWithEmailAndPassword(email, password);
         setSubmitting(false);
+        ReactGA.event({
+          category: "Button",
+          action: "Login"
+        });
       } catch (error) {
         window.scrollTo(0, 0);
         setServerError(error.message);
