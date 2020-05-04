@@ -12,10 +12,15 @@ export const Container = styled.div`
 export const Login = styled.div`
   margin: 10vh;
   padding: 10vh;
-  max-width: 30%;
+  width: 30%;
   border-radius: 2vh;
   color: ${themeGet("colors.tertiary")};
   background: ${themeGet("colors.transparentCard")};
+
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+    padding: 4vh;
+  }
 `;
 
 export const ErrorMessage = styled.div`

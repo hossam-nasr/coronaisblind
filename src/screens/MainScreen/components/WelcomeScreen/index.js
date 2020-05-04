@@ -28,7 +28,7 @@ const WelcomeScreen = () => {
         designed to help college students meet one another while remaining at
         home during the spread of COVID-19. Based on the popular TV series “Love
         is Blind,” the experience consists of a series of phone and video calls
-        between college students from all over the nation.
+        between college students from all over the world.
       </About>
       <Arrow onClick={_e => smoothSlide()}></Arrow>
       <img src={wave} />
