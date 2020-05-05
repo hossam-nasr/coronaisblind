@@ -25,6 +25,11 @@ export const About = styled.div`
   font-family: ${themeGet("fonts.about")};
   width: 40%;
   padding: 0px 20px 20px 20px;
+
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+  }
+
 `;
 
 export const Title = styled.div`
@@ -56,5 +61,4 @@ export const Column = styled.div`
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  padding: 5em;
 `;

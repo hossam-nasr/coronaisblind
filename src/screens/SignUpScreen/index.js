@@ -6,6 +6,7 @@ import { SignUp, Container, ErrorMessage } from "./styles";
 import { signUpUser } from "../../helpers";
 import { Header } from "../../components/Header";
 import { SessionContext } from "../../Session";
+import ReactGA from 'react-ga';
 
 const SignUpScreen = ({ history }) => {
   const { nextSession } = useContext(SessionContext);
@@ -44,6 +45,10 @@ const SignUpScreen = ({ history }) => {
         console.error("Encountered error signing up: " + err.message);
       }
       setSubmitting(false);
+      ReactGA.event({
+        category: "Button",
+        action: "Sign Up"
+      });
     },
     [history, nextSession, setServerError]
   );
