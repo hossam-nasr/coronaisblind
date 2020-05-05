@@ -9,7 +9,7 @@ export const signUpUser = async ({
   gender,
   lookingFor,
   friendEmails,
-  session
+  session,
 }) => {
   // authenticate user and create user ID
   const { user } = await app
@@ -17,31 +17,27 @@ export const signUpUser = async ({
     .createUserWithEmailAndPassword(email, password);
 
   // store user information in data store
-  await app
-    .firestore()
-    .collection("users")
-    .doc(user.uid)
-    .set({
-      id: user.uid,
-      email: user.email,
-      firstName,
-      lastName,
-      venmo,
-      gender,
-      lookingFor,
-      friendEmails,
-      session,
-      registration_date: new Date()
-    });
+  await app.firestore().collection("users").doc(user.uid).set({
+    id: user.uid,
+    email: user.email,
+    firstName,
+    lastName,
+    venmo,
+    gender,
+    lookingFor,
+    friendEmails,
+    session,
+    registration_date: new Date(),
+  });
 };
 
-export const getCallList = async user => {
+export const getCallList = async (user) => {
   if (user && user.id && user.calls) {
     try {
       const calls = [];
       const reveals = [];
       await Promise.all(
-        user.calls.map(async callId => {
+        user.calls.map(async (callId) => {
           const call = await getCallObj(callId, user.id);
           if (call) {
             calls.push(call);
@@ -51,7 +47,16 @@ export const getCallList = async user => {
           }
         })
       );
-      return { calls, reveals };
+      return {
+        calls: calls.sort((call1, call2) => {
+          if (call1.time < call2.time) return -1;
+          return 1;
+        }),
+        reveals: reveals.sort((call1, call2) => {
+          if (call1.time < call2.time) return -1;
+          return 1;
+        }),
+      };
     } catch (err) {
       console.error("Encountered error getting calls: ", err.message);
     }
@@ -60,11 +65,7 @@ export const getCallList = async user => {
 };
 
 export const getCallObj = async (callId, userId) => {
-  const callDoc = await app
-    .firestore()
-    .collection("calls")
-    .doc(callId)
-    .get();
+  const callDoc = await app.firestore().collection("calls").doc(callId).get();
 
   if (!callDoc.exists) {
     console.error("Couldn't find call with ID: ", callId);
@@ -102,6 +103,7 @@ export const getCallObj = async (callId, userId) => {
   const callerData = callerDoc.data();
   callData.name = callerData.firstName;
   callData.otherCallerId = callerId;
+  callData.time = new Date(callData.time.seconds * 1000);
   if (callData.reveal) {
     callData.lastName = callerData.lastName;
     callData.email = callerData.email;
@@ -114,12 +116,9 @@ export const postCallReview = async ({
   review,
   showedUp,
   theReviewed,
-  theReviewer
+  theReviewer,
 }) => {
-  const docRef = app
-    .firestore()
-    .collection("callReviews")
-    .doc();
+  const docRef = app.firestore().collection("callReviews").doc();
 
   const id = docRef.id;
 
@@ -129,29 +128,21 @@ export const postCallReview = async ({
     review,
     showedUp,
     theReviewed,
-    theReviewer
+    theReviewer,
   });
 };
 
-export const resetFlake = async uid => {
-  await app
-    .firestore()
-    .collection("users")
-    .doc(uid)
-    .update({
-      flake: false
-    });
+export const resetFlake = async (uid) => {
+  await app.firestore().collection("users").doc(uid).update({
+    flake: false,
+  });
   return;
 };
 
 export const subscribeNextSession = async (uid, nextSession) => {
-  await app
-    .firestore()
-    .collection("users")
-    .doc(uid)
-    .update({
-      session: nextSession,
-      flake: false
-    });
+  await app.firestore().collection("users").doc(uid).update({
+    session: nextSession,
+    flake: false,
+  });
   return;
 };

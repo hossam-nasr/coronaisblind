@@ -4,7 +4,7 @@ import {
   Text,
   Button,
   StyledLink,
-  StyledRouterLink
+  StyledRouterLink,
 } from "./styles";
 
 const CallRow = ({ id, past, name, time, url }) => (
@@ -14,7 +14,7 @@ const CallRow = ({ id, past, name, time, url }) => (
         timeZone: "America/New_York",
         timeZoneName: "short",
         hour: "2-digit",
-        minute: "2-digit"
+        minute: "2-digit",
       })}
     </Text>
     <Text>{name}</Text>
