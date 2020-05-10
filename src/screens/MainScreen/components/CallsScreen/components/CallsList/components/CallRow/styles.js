@@ -35,6 +35,22 @@ export const Button = styled.div`
   border-radius: 18px;
 `;
 
+export const DisabledButton = styled.div`
+  font-family: ${themeGet("fonts.textNormal.family")};
+  font-weight: ${themeGet("fonts.textNormal.weight")};
+  letter-spacing: 2px;
+  font-size: 1em;
+  color: ${themeGet("colors.textSubtitle")};
+  text-decoration: none;
+  background: ${themeGet("colors.silver")};
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 18px;
+  cursor: not-allowed;
+`;
+
 export const StyledLink = styled.a`
   text-decoration: none;
 

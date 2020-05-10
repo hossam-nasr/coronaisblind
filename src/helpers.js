@@ -146,3 +146,13 @@ export const subscribeNextSession = async (uid, nextSession) => {
   });
   return;
 };
+
+export const alreadyReviewed = async (uid, callId) => {
+  const user = await app.firestore().collection("users").doc(uid).get();
+  const call = await app.firestore().collection("calls").doc(callId).get();
+
+  if (user.data().callReviewsByMe.includes(call.data().user1Review) ||
+    user.data().callReviewsByMe.includes(call.data().user2Review))
+    return false;
+  return true;
+}
