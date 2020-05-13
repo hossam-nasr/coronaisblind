@@ -30,7 +30,7 @@ export const CallsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30vw;
+  width: 40vw;
   padding-left: 5vw;
   padding-right: 5vw;
 `;
