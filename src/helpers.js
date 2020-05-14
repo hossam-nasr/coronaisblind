@@ -158,6 +158,7 @@ export const alreadyReviewed = async (uid, callId) => {
 }
 
 export const getUserSessionStatus = async (id) => {
+  if(id === "") return true;
   const session = await app.firestore().collection("sessions").doc(id).get();
   if (session.data().done) return true;
   return false;
