@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../Auth.js";
-import { getCallList, resetFlake, subscribeNextSession } from "../../helpers";
+import { getCallList, resetFlake, subscribeNextSession, getUserSessionStatus } from "../../helpers";
 import CallsScreen from "./components/CallsScreen";
 import WelcomeScreen from "./components/WelcomeScreen";
 import { Container } from "./styles";
@@ -16,6 +16,7 @@ const MainScreen = () => {
 
   const [callList, setCallList] = useState([]);
   const [revealList, setRevealList] = useState([]);
+  const [userSessionStatus, setUserSessionStatus] = useState(false);
 
   useEffect(() => {
     const getCalls = async () => {
@@ -23,9 +24,9 @@ const MainScreen = () => {
       const { calls, reveals } = await getCallList(currentUser);
       setCallList(calls);
       setRevealList(reveals);
+      setUserSessionStatus(await getUserSessionStatus(currentUser.session));
       setUserLoading(false);
     };
-
     if (currentUser) {
       getCalls();
     }
@@ -53,14 +54,10 @@ const MainScreen = () => {
               text="We've noticed you missed attending some of your calls. If you still wish to participate in this session of Corona is Blind, click on this banner."
             ></Banner>
           )}
-          {currentSession.done && currentUser.session !== nextSession && (
+          {userSessionStatus && (
             <Banner
               onClick={() => joinNextSession()}
-              text={`The current session ends on ${new Date(
-                currentSession.endDate
-              ).toLocaleDateString(
-                "en-US"
-              )}. If you wish to participate in the next session, click on this banner.`}
+              text={`The current session has ended. If you wish to participate in the next session, click on this banner.`}
             ></Banner>
           )}
           <CallsScreen
